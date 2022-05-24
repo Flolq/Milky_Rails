@@ -1,0 +1,23 @@
+<h1>INDEX PAGE</h1>
+<div>
+<p>Book your space trip !</p>
+<label for="start_date">From :</label>
+<input type="date" id="start_date">
+<label for="end_date">To :</label>
+<input type="date" id="end_date">
+<label for="destintation">Destination :</label>
+<input type="text" id="destination">
+<button type="button" class="btn btn-primary">Search</button>
+</div>
+
+<div class="container">
+  <ul><% @trips.each do |trip| %></ul>
+    <%= link_to trip_path(trip) do %>
+    <div>
+      <li>Trip to <%= trip.destination %></li>
+      <li><%= trip.destination %></li>
+      <li><%= trip.price_per_day %></li>
+    </div>
+    <% end %>
+  <% end %>
+</div>
