@@ -1,4 +1,11 @@
 class TripsController < ApplicationController
+  def index
+    @trips = Trip.all
+  end
+  
+  def show
+  end
+  
   def new
     @trip = Trip.new
   end
@@ -10,6 +17,11 @@ class TripsController < ApplicationController
     else
       render :new
     end
+  end
+  
+  def destroy
+    @trip.destroy
+    redirect_to trips_path
   end
 
   private
