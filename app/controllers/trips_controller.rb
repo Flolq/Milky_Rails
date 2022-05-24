@@ -2,7 +2,17 @@ class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
 
   def index
-    @trips = Trip.all
+    if params[:end_date].nil? && params[:start_date].nil?
+      @trips = Trip.all
+    else
+      start_detail = params[:start_date].split("-")
+      start_date = Date.new(start_detail[0].to_i, start_detail[1].to_i, start_detail[2].to_i)
+      end_detail = params[:end_date].split("-")
+      end_date = Date.new(end_detail[0].to_i, end_detail[1].to_i, end_detail[2].to_i)
+      @duration = (end_date - start_date).to_i
+      @destination = params[:destination]
+      @trips = Trip.where("min_duration < ? and destination = ?", duration, destination)
+    end
   end
 
   def show
