@@ -5,7 +5,11 @@ class TripsController < ApplicationController
 
   def update
     @trip.update(trip_params)
-    redirect_to trip_path(@trip)
+    if @trip.save!
+      redirect_to trip_path(@trip)
+    else
+      render :edit
+    end
   end
 
   private
