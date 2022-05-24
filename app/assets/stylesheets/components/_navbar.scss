@@ -1,12 +1,38 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  background-color: $blue;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar img {
+  position: absolute;
+  left: 20px;
+  width: 60px;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar_text {
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  margin-left: 100px;
+}
+.navbar_text h1 {
+  font-size: 25px;
+  background: $gradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.navbar_text p {
+  position: absolute;
+  bottom: 0px;
+  font-family: "comfortaa";
+  font-weight: lighter;
+  font-size: 10px;
+  background: $gradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
