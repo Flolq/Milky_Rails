@@ -5,6 +5,8 @@ ruby '3.0.3'
 
 gem 'cloudinary', '~> 1.16.0'
 gem 'devise'
+# Use Faker for Seeding:
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.6'
 # Use postgresql as the database for Active Record
