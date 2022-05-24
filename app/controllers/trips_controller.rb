@@ -5,11 +5,9 @@ class TripsController < ApplicationController
   end
 
   def show
-    @trip = Trip.find(params[:id])
   end
 
   def destroy
-    @list = Trip.find(params[:id])
     @trip.destroy
     redirect_to trips_path
   end
