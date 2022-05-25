@@ -1,31 +1,47 @@
 <div class="container">
   <div>
-    <div>
-      <h2>Booking detail</h2>
+    <div class="col-8">
+      <div class="card-trip-description">
+        <div class="card-trip-description-title">
+          <h3>Spacetrip details</h3>
+        </div>
+        <div class="card-trip-description-text">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+        <div class="card-trip-description">
+        <div class="card-trip-description-title">
+          <h3>Pilot and shuttle details</h3>
+        </div>
+        <div class="card-trip-description-text">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
     </div>
-    <div>
-      <p>Your destination : <%= @trip.destination %></p>
-      <p>Booking dates : from  <%= @start_date %> to <%= @end_date %> </p>
-      <p>Number of travellers : <%= @number %></p>
-    </div>
-    <div>
-      <h3>Total price = <%= number_with_delimiter(@trip.price_per_day * @duration, :delimiter => ' ') %> Galactic credits</h3>
-    </div>
+    <div class="col-4">
+    <div class="card-booking-detail">
+        <div class="card-booking-detail-content">
+          <h2 class="card-invoice-text">Booking Details</h2>
+        </div>
+        <div class="card-booking-detail-content">
+          <div class="card-booking-detail-content-detail">
+            <div class="card-invoice-text">
+              Your destination: <%= @trip.destination %>
+            </div>
+            <div class="card-invoice-text">
+              Booking from <%= @start_date %> to <%= @end_date %>
+            </div>
+            <div class="card-invoice-text">
+              Number of travellers : <%= @number %>
+            </div>
+          </div>
+          <div class="card-booking-detail-content-total">
+            <div class="card-invoice-text">
+              Total Price : <%= number_with_delimiter(@trip.price_per_day * @duration, :delimiter => ' ') %> Galactic credits !
+            </div>
+          </div>
+        </div>
+      </div>
     <div class="big-btn-transparent"><%= link_to "Book your trip", booked_path %></div>
-    </div>
-      <div>
-    <h2>Spacetrip details</h2>
-    <div>
-      <p>Suscipit nostra porta dictumst torquent non parturient. Tempus; duis nibh hac pellentesque sociis ultricies cursus auctor. Himenaeos mollis aptent posuere pharetra. Porttitor fusce consectetur tempor penatibus pharetra facilisis posuere aliquam pharetra aliquam quisque ipsum. Nullam nam bibendum primis cursus convallis sociosqu vulputate scelerisque nam vehicula euismod ut. Laoreet elementum cursus vulputate sit, quis luctus enim. Condimentum dolor vivamus pulvinar aliquet imperdiet semper condimentum nascetur dolor facilisi. Arcu proin viverra felis ridiculus lorem taciti vivamus platea turpis condimentum scelerisque posuere. Placerat pulvinar mollis pretium habitasse velit magna morbi fermentum vitae ligula tortor.</p>
-    </div>
-  </div>
-
-    <div>
-    <h2>Pilot and shuttle details</h2>
-    <div>
-      <p>Suscipit nostra porta dictumst torquent non parturient. Tempus; duis nibh hac pellentesque sociis ultricies cursus auctor. Himenaeos mollis aptent posuere pharetra. Porttitor fusce consectetur tempor penatibus pharetra facilisis posuere aliquam pharetra aliquam quisque ipsum. Nullam nam bibendum primis cursus convallis sociosqu vulputate scelerisque nam vehicula euismod ut. Laoreet elementum cursus vulputate sit, quis luctus enim. Condimentum dolor vivamus pulvinar aliquet imperdiet semper condimentum nascetur dolor facilisi. Arcu proin viverra felis ridiculus lorem taciti vivamus platea turpis condimentum scelerisque posuere. Placerat pulvinar mollis pretium habitasse velit magna morbi fermentum vitae ligula tortor.</p>
-    </div>
-  </div>
-  </div>
   <%= link_to "Back to homepage", trips_path %>
 </div>
