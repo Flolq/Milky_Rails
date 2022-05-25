@@ -8,11 +8,11 @@
     </div>
     <div>
       <p>Your destination : <%= @trip.destination %></p>
-      <p>Booking dates : </p> <!--booking dates to be added -->
-      <p>Number of travellers : </p>
+      <p>Booking dates : from  <%= @start_date %> to <%= @end_date %> </p> <!--booking dates to be added -->
+      <p>Number of travellers : <%= @number %></p>
     </div>
     <div>
-      <h3>Total price = <%= @trip.price_per_day %></h3> <!--to be multiplied by number of days -->
+      <h3>Total price = <%= (@trip.price_per_day * @duration) %></h3> <!--to be multiplied by number of days -->
     </div>
   </div>
 
