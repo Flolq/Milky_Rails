@@ -1,0 +1,21 @@
+<div class="container">
+  <div>
+    <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+  </div>
+  <div>
+    <div>
+      <h2>User detail</h2>
+    </div>
+    <div>
+      <p><%= @user.first_name %> <%= @user.last_name %> </p>
+
+    </div>
+
+  </div>
+
+  <%# <%= link_to "back", users_path %> %>
+  <%= link_to "Delete user",
+            user_path(@trip),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+</div>
