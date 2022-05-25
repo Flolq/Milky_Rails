@@ -1,1 +1,20 @@
-<h1>Congrats your booked your trip !</h1>
+<h1>Congrats your trip is booked !</h1>
+
+<div class="container">
+  <div>
+    <%= cl_image_tag @trip.photo.key, height: 300, width: 400, crop: :fill %>
+  </div>
+  <div>
+    <div>
+      <h2>Booking detail</h2>
+    </div>
+    <div>
+      <p>Your destination : <%= @trip.destination %></p>
+      <p>Booking dates : from  <%= @start_date %> to <%= @end_date %> </p>
+      <p>Number of travellers : <%= @number %></p>
+    </div>
+    <div>
+      <h3>Total price = <%= (@trip.price_per_day * @duration) %> Galactic credits</h3>
+  </div>
+   <%= link_to "Back to homepage", trips_path %>
+</div>
