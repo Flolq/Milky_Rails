@@ -7,8 +7,10 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-}
-
-.footer-text {
-  color: white;
+  span {
+    background: -webkit-linear-gradient(#FF4D00, #FFCA00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }

@@ -4,7 +4,9 @@
     <h1>Milky Rails</h1>
     <p>Space has never been so close</p>
   </div>
-  <div class="button big-btn-transparent">Button</div>
+  <div class="button big-btn-transparent">
+    Button
+  </div>
 </div>
 
 <div class="big-btn-full">Button</div>
@@ -28,13 +30,9 @@
 </div>
 
 <div class="footer">
-  <div class="footer-text">
-    TEXT
-  </div>
-  <div class="footer-text">
-    <%= icon('fa-brands', 'fa-github-square') %>
-  </div>
-  <div class="footer-text">
-    TEXT
-  </div>
+  <span>MilkyRails © 2022</span>
+  <%= link_to root_path do %>
+    <%= image_tag 'logo_white.png', width: '60px' %>
+  <% end %>
+  <span>Team TennisManager</span>
 </div>
