@@ -28,15 +28,15 @@ class TripsController < ApplicationController
 
   def show
     session[:my_params]
-    if session[:my_params]["start_date"] != ""
+    if session[:my_params]["start_date"] != "" && !session[:my_params]["start_date"].nil?
       start_detail = session[:my_params]["start_date"].split("-")
       @start_date = Date.new(start_detail[0].to_i, start_detail[1].to_i, start_detail[2].to_i)
     end
-    if session[:my_params]["end_date"] != ""
+    if session[:my_params]["end_date"] != "" && !session[:my_params]["end_date"].nil?
       end_detail = session[:my_params]["end_date"].split("-")
       @end_date = Date.new(end_detail[0].to_i, end_detail[1].to_i, end_detail[2].to_i)
     end
-    if session[:my_params]["start_date"].nil? != "" && session[:my_params]["end_date"] != ""
+    if session[:my_params]["end_date"] != "" && !session[:my_params]["end_date"].nil? && session[:my_params]["start_date"] != "" && !session[:my_params]["start_date"].nil?
       @duration = (@end_date - @start_date).to_i
     else
       @duration = 0
