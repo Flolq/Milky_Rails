@@ -1,8 +1,8 @@
-<%= simple_form_for[@user, @trip] do |f| %>
+<%= simple_form_for [@user, @trip] do |f| %>
   <%= f.input :destination %>
   <%= f.input :price_per_day %>
   <%= f.input :min_duration %>
-  <%= f.asscociation :shuttle %>
+  <%= f.association :shuttle %>
   <%= f.input :photo, as: :file %>
   <%= f.submit %>
 <% end %>
