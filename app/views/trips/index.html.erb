@@ -2,6 +2,11 @@
 <div>
 <p>Book your space trip !</p>
 <form action="/trips" method="get">
+    <!-- <select id="departure" name="departure">
+    <option value="">Departure</option>
+    <option value="1">Paris</option>
+    <option value="2">New York</option>
+    <option value="3">London</option> -->
   <input type="date" id="start_date" name="start_date">
   <input type="date" id="end_date" name="end_date">
   <input type="text" id="number_of_travellers" name="number_of_travellers" placeholder="Number of travellers ?">
@@ -13,7 +18,7 @@
 
 <div class="container">
   <% if @trips == [] %>
-    <p>Sorry no trip fits your needs ... Han Solo is too busy</p>
+    <p>Sorry no available trips with your criterias ... Han Solo is busy</p>
   <% else %>
     <ul><% @trips.each do |trip| %></ul>
       <%= link_to trip_path(trip) do %>

@@ -13,7 +13,7 @@ class TripsController < ApplicationController
       end_detail = params[:end_date].split("-")
       end_date = Date.new(end_detail[0].to_i, end_detail[1].to_i, end_detail[2].to_i)
       duration = (end_date - start_date).to_i
-      @trips = Trip.where("min_duration < ?", duration)
+      @trips = Trip.where("min_duration < ?", (duration + 1))
     else
       start_detail = params[:start_date].split("-")
       start_date = Date.new(start_detail[0].to_i, start_detail[1].to_i, start_detail[2].to_i)
@@ -21,7 +21,7 @@ class TripsController < ApplicationController
       end_date = Date.new(end_detail[0].to_i, end_detail[1].to_i, end_detail[2].to_i)
       duration = (end_date - start_date).to_i
       destination = params[:destination].titleize
-      @trips = Trip.where("min_duration < ? and destination = ?", duration, destination)
+      @trips = Trip.where("min_duration < ? and destination = ?", (duration + 1), destination)
     end
     session[:my_params] = params
   end
