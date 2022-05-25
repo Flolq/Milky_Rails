@@ -7,9 +7,34 @@
   <div class="button big-btn-transparent">Button</div>
 </div>
 
+<div class="big-btn-full">Button</div>
+
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
 <div class="container">
-  <div class="big-btn-full">Button</div>
+  <div class="row">
+    <div class="col-4">
+      <div class="trip-card">
+        <div class="trip-card-img" style="background-image: url(<%= image_path 'space.jpg' %>);"></div>
+        <div class="trip-card-content">
+          <h1>Titre</h1>
+          <p>Description</p>
+          <div class="trip-card-price">Price</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-text">
+    TEXT
+  </div>
+  <div class="footer-text">
+    <%= icon('fa-brands', 'fa-github-square') %>
+  </div>
+  <div class="footer-text">
+    TEXT
+  </div>
 </div>
