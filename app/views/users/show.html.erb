@@ -1,6 +1,8 @@
 <div class="container">
   <div>
+  <% if cl_image_tag @user.photo.key %>
     <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
   </div>
   <div>
     <div>
@@ -13,9 +15,10 @@
 
   </div>
 
-  <%# <%= link_to "back", users_path %> %>
   <%= link_to "Delete user",
-            user_path(@trip),
+            user_path(@user),
             method: :delete,
-            data: { confirm: "Are you sure?" } %>
+            data: { confirm: "Are you sure?" }  %>
+  <%= link_to "Back to users", users_path  %>
+
 </div>
