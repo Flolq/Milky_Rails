@@ -3,6 +3,8 @@
   border-radius: 10px;
   height: 350px;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .trip-card-img {
@@ -28,6 +30,8 @@
   border-radius: 10px;
   height: 175px;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .trip-card-recap-img {
@@ -45,7 +49,7 @@
 }
 
 .button-card-recap {
-  margin: 0px 130px 0px 130px;
+  margin: 0px 80px 0px 80px;
 }
 
 .trip-card-recap-text {
@@ -110,4 +114,55 @@
 
 .card-invoice-price-total {
   margin-top: 50px;
+
+.card-confirmation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: white;
+  border-radius: 10px;
+  height: 250px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.card-confirmation-content {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.card-confirmation-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  div {
+    font-size: 10px;
+  }
+}
+
+.card-confirmation-infos {
+  line-height: 2.5;
+}
+
+.card-confirmation-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 8px;
+}
+
+.card-confirmation-box-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-confirmation-buttons {
+  display: flex;
+  justify-content: space-around;
 }

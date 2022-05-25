@@ -14,6 +14,8 @@
     <div>
       <h3>Total price = <%= (@trip.price_per_day * @duration) %> Galactic credits</h3>
     </div>
+    <div class="big-btn-transparent"><%= link_to "Book your trip", booked_path %></div>
+    </div>
   </div>
 
   <div>
@@ -29,9 +31,5 @@
       <p>Suscipit nostra porta dictumst torquent non parturient. Tempus; duis nibh hac pellentesque sociis ultricies cursus auctor. Himenaeos mollis aptent posuere pharetra. Porttitor fusce consectetur tempor penatibus pharetra facilisis posuere aliquam pharetra aliquam quisque ipsum. Nullam nam bibendum primis cursus convallis sociosqu vulputate scelerisque nam vehicula euismod ut. Laoreet elementum cursus vulputate sit, quis luctus enim. Condimentum dolor vivamus pulvinar aliquet imperdiet semper condimentum nascetur dolor facilisi. Arcu proin viverra felis ridiculus lorem taciti vivamus platea turpis condimentum scelerisque posuere. Placerat pulvinar mollis pretium habitasse velit magna morbi fermentum vitae ligula tortor.</p>
     </div>
   </div>
-  <%= link_to "back", trips_path %>
-  <%= link_to "Delete your trip to #{@trip.destination}",
-            trip_path(@trip),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
+  <%= link_to "Back to homepage", trips_path %>
 </div>
