@@ -1,5 +1,6 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy, :booked]
+  before_action :trip_details, only [:show, :booked]
 
   def index
     if (params[:end_date].nil? && params[:start_date].nil? && params[:destination].nil?) || (params[:end_date] == "" && params[:start_date] == "" && params[:destination] == "")
@@ -27,11 +28,9 @@ class TripsController < ApplicationController
   end
 
   def show
-    trip_details
   end
 
   def booked
-    trip_details
   end
 
   def new
