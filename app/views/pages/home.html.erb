@@ -13,7 +13,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-4">
+    <div class="col-3">
       <div class="trip-card">
         <div class="trip-card-img" style="background-image: url(<%= image_path 'space.jpg' %>);"></div>
         <div class="trip-card-content">
@@ -24,8 +24,9 @@
       </div>
     </div>
   </div>
+
   <div class="row">
-    <div class="col-4">
+    <div class="col-3">
       <div class="trip-card-recap">
         <div class="trip-card-recap-content">
           <div class="trip-card-recap-text">
@@ -46,7 +47,34 @@
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-5">
+      <div class="card-confirmation">
+        <div class="card-confirmation-content">
+          <div class="card-confirmation-text">
+            <div  class="card-confirmation-infos">
+              <div>Your destination: Planet Venus</div>
+              <div>Booking dates: XX/XX to XX/XX</div>
+              <div>User: Name</div>
+              <div>Rating: XXX</div>
+            </div>
+          </div>
+          <div class="card-confirmation-box-img">
+            <div class="card-confirmation-img" style="background-image: url(<%= image_path 'space.jpg' %>);"></div>
+            <div class="small-btn-full"><span>See details</span></div>
+          </div>
+        </div>
+        <div class="card-confirmation-buttons">
+          <div class="big-btn-full-accept"><span>Accept booking</span></div>
+          <div class="big-btn-full-refuse"><span>Refuse booking</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+
 
 <div class="footer">
   <span>MilkyRails © 2022</span>
