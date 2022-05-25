@@ -2,7 +2,7 @@ class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:end_date].nil? && params[:start_date].nil? && params[:destination].nil?
+    if (params[:end_date].nil? && params[:start_date].nil? && params[:destination].nil?) || (params[:end_date] == "" && params[:start_date] == "" && params[:destination] == "")
       @trips = Trip.all
     elsif (params[:end_date] == "" || params[:start_date] == "") && params[:destination].nil? == false
       destination = params[:destination].titleize
@@ -28,15 +28,15 @@ class TripsController < ApplicationController
 
   def show
     session[:my_params]
-    if session[:my_params]["start_date"].nil? == false
+    if session[:my_params]["start_date"] != ""
       start_detail = session[:my_params]["start_date"].split("-")
       @start_date = Date.new(start_detail[0].to_i, start_detail[1].to_i, start_detail[2].to_i)
     end
-    if session[:my_params]["end_date"].nil? == false
+    if session[:my_params]["end_date"] != ""
       end_detail = session[:my_params]["end_date"].split("-")
       @end_date = Date.new(end_detail[0].to_i, end_detail[1].to_i, end_detail[2].to_i)
     end
-    if session[:my_params]["start_date"].nil? == false && session[:my_params]["end_date"].nil? == false
+    if session[:my_params]["start_date"].nil? != "" && session[:my_params]["end_date"] != ""
       @duration = (@end_date - @start_date).to_i
     else
       @duration = 0
