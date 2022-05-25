@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :bookings
   has_many :my_trips, class_name: 'Trip'
-  has_many :trips, through: :bookings
-  validates :first_name, :last_name, :email, presence: true
+  has_many :trips, through: :booking
   validates :email, uniqueness: true
+  has_one_attached :photo
 end

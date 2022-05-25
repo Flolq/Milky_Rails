@@ -1,0 +1,13 @@
+<h1>Admin page - USERS index</h1>
+
+<div class="container">
+  <ul><% @users.each do |user| %></ul>
+    <%= link_to user_path(user) do %>
+    <div>
+      <h2> <%= user.first_name %> <%= user.last_name %></h2>
+    </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div><%= link_to "Back to Homepage", trips_path %></div>
