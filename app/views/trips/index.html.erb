@@ -30,7 +30,7 @@
           <div class="trip-card">
             <div class="trip-card-img" style="background-image: url(<%= image_path 'space.jpg' %>);"></div>
             <div class="trip-card-content">
-              <h1><%= link_to "Trip to #{trip.destination}", trip_path(trip) %></h1>
+              <h3><%= link_to "Trip to #{trip.destination}", trip_path(trip) %></h3>
               <p>Minimum duration : <%= trip.min_duration %></p>
               <p>Maximum capacity of the spaceship : <%= trip.shuttle.max_capacity %></p>
               <div class="trip-card-price"> <%= number_with_delimiter(trip.price_per_day, :delimiter => ' ') %> Galactic credits / day</p></div>
