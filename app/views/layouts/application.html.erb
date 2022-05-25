@@ -20,15 +20,6 @@
         <h1>Milky Rails</h1>
         <p>Space has never been so close</p>
       </div>
-      <% if user_signed_in? %>
-        <div class = "text-white"><%= current_user.email %></div>
-        <div><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-white" %></div>
-      <% else %>
-        <div><%= link_to "Login", new_user_session_path, class: "text-white" %></div>
-      <% end %>
-      <div class="button big-btn-transparent">
-        <span>Button</span>
-      </div>
     </div>
     <%= yield %>
     <%= render 'shared/flashes' %>
