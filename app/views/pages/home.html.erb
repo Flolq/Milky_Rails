@@ -4,10 +4,15 @@
     <h1>Milky Rails</h1>
     <p>Space has never been so close</p>
   </div>
-  <div class="button big-btn-transparent">Button</div>
+  <div class="big-btn-full"><span>Button</span></div>
+  <div class="big-btn-full-accept"><span>Accept booking</span></div>
+  <div class="big-btn-full-refuse"><span>Accept booking</span></div>
+  <div class="small-btn-full"><span>Button</span></div>
+  <div class="big-btn-transparent"><span>Button</span></div>
+  <div class="small-btn-transparent"><span>Button</span></div>
 </div>
 
-<div class="big-btn-full">Button</div>
+
 
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
@@ -21,6 +26,28 @@
           <h1>Titre</h1>
           <p>Description</p>
           <div class="trip-card-price">Price</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <div class="trip-card-recap">
+        <div class="trip-card-recap-content">
+          <div class="trip-card-recap-text">
+            <div  class="trip-card-recap-infos">
+              <div>Dates: XX/XX to XX/XX</div>
+              <div>Destination: Venus</div>
+              <div>With User</div>
+            </div>
+            <div>
+              <div>Total paid: XXX €</div>
+            </div>
+          </div>
+          <div class="trip-card-recap-img" style="background-image: url(<%= image_path 'space.jpg' %>);"></div>
+        </div>
+        <div class="button-card-recap">
+          <div class="small-btn-full"><span>See details</span></div>
         </div>
       </div>
     </div>

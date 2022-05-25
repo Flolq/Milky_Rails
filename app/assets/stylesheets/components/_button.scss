@@ -2,33 +2,124 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: transparent;
   font-size: 15px;
-  background: $gradient;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
   padding: 8px 24px;
   border-radius: 10px;
   font-weight: lighter;
   border: 1px solid $yellow;
+  span {
+    background: $webkit-gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  &:hover {
+    background-color: rgba(75, 86, 154, 0.4);
+  }
 }
 
-.big-btn-transparent:hover {
-  background: rgba(75, 86, 154, 0.4);
+.small-btn-transparent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  font-size: 10px;
+  padding: 6px 18px;
+  border-radius: 10px;
+  font-weight: lighter;
+  border: 1px solid $yellow;
+  span {
+    background: $webkit-gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  &:hover {
+    background-color: rgba(75, 86, 154, 0.4);
+  }
 }
 
 .big-btn-full {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: $blue;
   font-size: 15px;
-  background: $gradient;
-  -webkit-background-clip: text;
-  background-clip: $blue;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
   padding: 8px 24px;
   border-radius: 10px;
   font-weight: lighter;
   border: 1px solid $yellow;
+  span {
+    background: $webkit-gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  &:hover {
+    background-color: rgba(75, 86, 154, 0.4);
+  }
+}
+
+.big-btn-full-accept {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $blue;
+  font-size: 15px;
+  padding: 8px 24px;
+  border-radius: 10px;
+  font-weight: lighter;
+  border: 1px solid $yellow;
+  span {
+    background: $webkit-gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  &:hover {
+    background-color: rgba(75, 86, 154, 0.4);
+  }
+}
+
+.big-btn-full-refuse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $red;
+  font-size: 15px;
+  padding: 8px 24px;
+  border-radius: 10px;
+  font-weight: lighter;
+  border: 1px solid $yellow;
+  span {
+    background: $webkit-gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  &:hover {
+    background-color: rgba(197, 12, 12, 0.4);
+  }
+}
+
+.small-btn-full {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $blue;
+  font-size: 10px;
+  padding: 6px 18px;
+  border-radius: 10px;
+  font-weight: lighter;
+  border: 1px solid $yellow;
+  span {
+    background: $webkit-gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  &:hover {
+    background-color: rgba(75, 86, 154, 0.4);
+  }
 }

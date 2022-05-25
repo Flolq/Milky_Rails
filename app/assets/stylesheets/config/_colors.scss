@@ -1,8 +1,9 @@
 // Define variables for your color scheme
 
 // For example:
-$red: #C50C0C;
+$red: rgb(197, 12, 12);
 $blue: #000839;
 $yellow: #E3B505;
 $gray: #E8E8E8;
-$gradient: radial-gradient(103.95% 1210.7% at 107.67% 23.02%, #FF4D00 0%, #FFCA00 100%);
+$gradient: linear-gradient(#FF4D00, #FFCA00);
+$webkit-gradient: -webkit-linear-gradient(#FF4D00, #FFCA00);
