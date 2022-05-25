@@ -1,6 +1,7 @@
 
 <div class="container">
   <h1>Book your space trip !</h1>
+  <%= link_to "Your trip", user_path(@user)%>
   <form action="/trips" method="get" class="search-form">
       <!-- <select id="departure" name="departure">
       <option value="">Departure</option>
