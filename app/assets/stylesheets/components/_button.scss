@@ -1,9 +1,34 @@
-.btn_transparent {
-  color: $gradient;
-  border: 1px solid $gradient;
+.big-btn-transparent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  background: $gradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   padding: 8px 24px;
-  border-radius: 50px;
+  border-radius: 10px;
   font-weight: lighter;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
+  border: 1px solid $yellow;
+}
+
+.big-btn-transparent:hover {
+  background: rgba(75, 86, 154, 0.4);
+}
+
+.big-btn-full {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  background: $gradient;
+  -webkit-background-clip: text;
+  background-clip: $blue;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 8px 24px;
+  border-radius: 10px;
+  font-weight: lighter;
+  border: 1px solid $yellow;
 }
