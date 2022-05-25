@@ -20,7 +20,7 @@
   <% if @trips == [] %>
     <p>Sorry no available trips with your criterias ... Han Solo is busy</p>
   <% else %>
-    <ul><% @trips.each do |trip| %></ul>
+    <% @trips.each do |trip| %>
       <%= link_to trip_path(trip) do %>
       <div>
         <h2>Trip to <%= trip.destination %></h2>
