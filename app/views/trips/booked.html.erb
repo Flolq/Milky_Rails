@@ -14,7 +14,7 @@
       <p>Number of travellers : <%= @number %></p>
     </div>
     <div>
-      <h3>Total price = <%= (@trip.price_per_day * @duration) %> Galactic credits</h3>
+      <h3>Total price = <%=number_with_delimiter(@trip.price_per_day * @duration, :delimiter => ' ') %> Galactic credits</h3>
   </div>
    <%= link_to "Back to homepage", trips_path %>
 </div>
