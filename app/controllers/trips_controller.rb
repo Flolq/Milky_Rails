@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  before_action :set_trip, only: [:show, :edit, :update, :destroy]
+  before_action :set_trip, only: [:show, :edit, :update, :destroy, :booked]
 
   def index
     if (params[:end_date].nil? && params[:start_date].nil? && params[:destination].nil?) || (params[:end_date] == "" && params[:start_date] == "" && params[:destination] == "")
@@ -27,23 +27,11 @@ class TripsController < ApplicationController
   end
 
   def show
-    session[:my_params]
-    if session[:my_params]["start_date"] != ""
-      start_detail = session[:my_params]["start_date"].split("-")
-      @start_date = Date.new(start_detail[0].to_i, start_detail[1].to_i, start_detail[2].to_i)
-    end
-    if session[:my_params]["end_date"] != ""
-      end_detail = session[:my_params]["end_date"].split("-")
-      @end_date = Date.new(end_detail[0].to_i, end_detail[1].to_i, end_detail[2].to_i)
-    end
-    if session[:my_params]["start_date"].nil? != "" && session[:my_params]["end_date"] != ""
-      @duration = (@end_date - @start_date).to_i
-    else
-      @duration = 0
-    end
-    if session[:my_params]["number_of_travellers"].nil? == false
-      @number = session[:my_params]["number_of_travellers"]
-    end
+    trip_details
+  end
+
+  def booked
+    trip_details
   end
 
   def new
@@ -87,5 +75,25 @@ class TripsController < ApplicationController
 
   def set_trip
     @trip = Trip.find(params[:id])
+  end
+
+  def trip_details
+    session[:my_params]
+    if session[:my_params]["start_date"] != ""
+      start_detail = session[:my_params]["start_date"].split("-")
+      @start_date = Date.new(start_detail[0].to_i, start_detail[1].to_i, start_detail[2].to_i)
+    end
+    if session[:my_params]["end_date"] != ""
+      end_detail = session[:my_params]["end_date"].split("-")
+      @end_date = Date.new(end_detail[0].to_i, end_detail[1].to_i, end_detail[2].to_i)
+    end
+    if session[:my_params]["start_date"].nil? != "" && session[:my_params]["end_date"] != ""
+      @duration = (@end_date - @start_date).to_i
+    else
+      @duration = 0
+    end
+    if session[:my_params]["number_of_travellers"].nil? == false
+      @number = session[:my_params]["number_of_travellers"]
+    end
   end
 end
