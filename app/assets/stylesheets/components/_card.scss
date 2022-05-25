@@ -60,3 +60,54 @@
 .trip-card-recap-infos {
   line-height: 1.7;
 }
+
+.card-invoice {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.card-invoice-img {
+  height: 175px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-invoice-content {
+  padding: 20px;
+}
+
+.card-invoice-infos {
+  border-radius: 10px;
+  background: $blue;
+  margin: 10px 44px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  h2 {
+    text-align: center;
+    font-weight: bold;
+  }
+  ul {
+    margin-left: 0;
+    list-style: none;
+  }
+}
+
+.card-invoice-text {
+  background: -webkit-linear-gradient(#FF4D00, #FFCA00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card-invoice-price-detail {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-invoice-price-total {
+  margin-top: 50px;
+}
