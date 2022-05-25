@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to :users_path #route à décider, vu qu'on a pas d'index pour users
+    redirect_to :trips_path #route à décider, vu qu'on a pas d'index pour users
   end
 
   private
