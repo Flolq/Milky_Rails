@@ -1,0 +1,22 @@
+.search-form {
+  height: 60px;
+  background-color: $blue;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 5px 50px;
+}
+
+.search-form-input {
+  flex-grow: 1;
+  margin-right: 20px;
+}
+
+.search-form-label {
+  background: -webkit-linear-gradient(#FF4D00, #FFCA00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-right: 5px;
+}
