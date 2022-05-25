@@ -2,22 +2,34 @@
 <div>
 <p>Book your space trip !</p>
 <form action="/trips" method="get">
+    <!-- <select id="departure" name="departure">
+    <option value="">Departure</option>
+    <option value="1">Paris</option>
+    <option value="2">New York</option>
+    <option value="3">London</option> -->
   <input type="date" id="start_date" name="start_date">
   <input type="date" id="end_date" name="end_date">
-  <input type="text" id="destination" name="destination" required>
+  <input type="text" id="number_of_travellers" name="number_of_travellers" placeholder="Number of travellers ?">
+  <input type="text" id="destination" name="destination" placeholder="Type your destination">
   <input type="submit" value="Search">
 </form>
 
 </div>
 
 <div class="container">
-  <ul><% @trips.each do |trip| %></ul>
-    <%= link_to trip_path(trip) do %>
-    <div>
-      <h2>Trip to <%= trip.destination %></h2>
-      <p><%= trip.destination %></p>
-      <p><%= trip.price_per_day %></p>
-    </div>
+  <% if @trips == [] %>
+    <p>Sorry no available trips with your criterias ... Han Solo is busy</p>
+  <% else %>
+    <% @trips.each do |trip| %>
+      <%= link_to trip_path(trip) do %>
+      <div>
+        <h2>Trip to <%= trip.destination %></h2>
+        <p>Destination : <%= trip.destination %></p>
+        <p>Minimum duration : <%= trip.min_duration %></p>
+        <p>Maximum capacity of the spaceship : <%= trip.shuttle.max_capacity %></p>
+        <p>Price per day : <%= trip.price_per_day %> Galactic credits</p>
+      </div>
+      <% end %>
     <% end %>
   <% end %>
 </div>
