@@ -48,7 +48,7 @@ class TripsController < ApplicationController
     @trip.owner = current_user
 
     if @trip.save!
-      redirect_to trip_path(@trip)
+      redirect_to user_path(current_user)
     else
       render :new
     end
