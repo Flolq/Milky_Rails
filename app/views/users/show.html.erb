@@ -1,12 +1,12 @@
 <div class="container">
-  <div>
+  <div class="avatar-marging">
   <% if @user.photo.attached? %>
-    <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill, class: "avatar" %>
+    <%= cl_image_tag @user.photo.key, height: 300, width: 300, crop: :fill, class: "rounded-circle" %>
   <% end %>
   </div>
   <div>
     <div class="title">
-      <p>Hi, <%= @user.first_name %> <%= @user.last_name %> ! 🚀</p>
+      <h1>Hi, <%= @user.first_name %> <%= @user.last_name %> ! 🚀</h1>
     </div>
   </div>
   <h2>Your proposed trips</h2>
@@ -53,9 +53,6 @@
             </div>
             <div class="trip-card-recap-img" style="background-image: url(<%= cl_image_path booking.trip.photo.key %>);"></div>
           </div>
-          <%# <div class="button-card-recap"> %>
-            <%# <div class="small-btn-full"><span><%= link_to "See details", booking_path(booking) %></span></div>
-          <%# </div> %>
         </div>
       </div>
       <% end %>
