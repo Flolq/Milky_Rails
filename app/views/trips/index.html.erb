@@ -39,7 +39,7 @@
           <div class="col-3">
             <%= link_to trip_path(trip) do %>
               <div class="trip-card">
-                <div class="trip-card-img" style="background-image: url(<%= image_path 'space.jpg' %>);"></div>
+                <div class="trip-card-img" style="background-image: url('<%= cl_image_path trip.photo.key %>');"></div>
                 <div class="trip-card-content">
                   <h3><%= "Trip to #{trip.destination}" %></h3>
                   <p>Departure : <%= trip.spatioport.name %></p>
