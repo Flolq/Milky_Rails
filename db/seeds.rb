@@ -171,12 +171,14 @@ puts 'You are born, lucky you ...'
 puts 'Creating five spaceships owners with each 5 trips'
 
 5.times do
+  profile_pic = URI.open('https://source.unsplash.com/random/?avatar')
   user = User.create!(
     email: Faker::Internet.email,
     password: 'password',
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name
   )
+  user.photo.attach(io: profile_pic, filename: 'avatar.jpg', content_type: 'image/jpg')
 
   5.times do
     planet_pic = URI.open('https://source.unsplash.com/random/?planet')
@@ -200,12 +202,14 @@ puts 'We have our owners AND our trips!'
 puts "Creating 'classic' users and their bookings"
 
 10.times do
+  profile_pic = URI.open('https://source.unsplash.com/random/?avatar')
   user = User.create!(
     email: Faker::Internet.email,
     password: 'password',
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name
   )
+  user.photo.attach(io: profile_pic, filename: 'avatar.jpg', content_type: 'image/jpg')
 
   trip = Trip.all.sample
 

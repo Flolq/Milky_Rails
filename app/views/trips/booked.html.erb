@@ -1,19 +1,25 @@
-<h1>Congrats your trip is booked !</h1>
-
 <div class="container">
-  <div>
+
+  <div class="card-congrats">
+
+    <h1> Welcome on board ! </h1>
     <div>
-      <h2>Booking detail</h2>
+        <h3>Booking details</h3>
+      <div>
+        <p>Your destination : <%= @trip.destination %></p>
+        <p>Booking dates : from  <%= @start_date %> to <%= @end_date %> </p>
+        <p>Number of travellers : <%= @number %></p>
+      </div>
+      <div class= "title">
+        <p>Total price = <%=number_with_delimiter(@trip.price_per_day * @duration, :delimiter => ' ') %> Galactic credits</p>
+      </div>
     </div>
-    <div>
-      <p>Your destination : <%= @trip.destination %></p>
-      <p>Booking dates : from  <%= @start_date %> to <%= @end_date %> </p>
-      <p>Number of travellers : <%= @number %></p>
+      <div class="card-congrats-buttons">
+      <div class="small-btn-transparent margin-button"><span><%= link_to "Back to homepage", trips_path %></span></div>
+      <div class="small-btn-transparent margin-button"><span><%= link_to "Your trips", user_path(@user)%></span></div>
     </div>
     <div>
       <h3>Total price = <%=number_with_delimiter(@trip.price_per_day * @duration, :delimiter => ' ') %> Galactic credits</h3>
     </div>
   </div>
-   <%= link_to "Back to homepage", trips_path %>
-   <%= link_to "Your trips", user_path(@user)%>
 </div>
