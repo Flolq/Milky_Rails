@@ -121,6 +121,50 @@ end
 
 puts 'Done!'
 
+puts 'AAAAAAAAAND this is our user with its trips and bookings'
+
+avatar = URI.open('https://res.cloudinary.com/dx5ha1ecm/image/upload/v1653568759/ajwiov5xeub3z1susfsh.jpg')
+
+main_user = User.create!(
+  email: 'hello@milkyrails.com',
+  password: 'password',
+  first_name: "Jean-Michel",
+  last_name: "Jean-Jean"
+)
+
+main_user.photo.attach(io: avatar, filename: 'avatar.jpg', content_type: 'image/jpg')
+
+3.times do
+  planet_pic = URI.open('https://source.unsplash.com/random/?planet')
+
+  trip = Trip.create!(
+    destination: Faker::Movies::StarWars.planet,
+    description: Faker::Lorem.paragraph(sentence_count: 10),
+    price_per_day: [10_000, 15_000, 20_000, 30_000, 40_000, 50_000, 100_000].sample,
+    min_duration: (3...10).to_a.sample,
+    spatioport_id: Spatioport.all.sample.id,
+    shuttle_id: Shuttle.all.sample.id,
+    user_id: main_user.id
+  )
+
+  trip.photo.attach(io: planet_pic, filename: 'planet.jpg', content_type: 'image/jpg')
+end
+
+3.times do
+  trip = Trip.all.sample
+
+  Booking.create!(
+    start_date: Faker::Date.in_date_period(year: 2152),
+    end_date: Faker::Date.in_date_period(year: 2152) + 10,
+    confirmed: [true, false].sample,
+    user_id: main_user.id,
+    trip_id: trip.id,
+    number_of_people: trip.shuttle.max_capacity - 1
+  )
+end
+
+puts 'You are born, lucky you ...'
+
 puts 'Creating five spaceships owners with each 5 trips'
 
 5.times do
@@ -170,7 +214,6 @@ puts "Creating 'classic' users and their bookings"
     trip_id: trip.id,
     number_of_people: trip.shuttle.max_capacity - 1
   )
-
 end
 
 puts 'We have our customers!'

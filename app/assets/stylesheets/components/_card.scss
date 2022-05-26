@@ -1,9 +1,9 @@
 .trip-card {
   background-color: white;
   border-radius: 10px;
-  height: 350px;
+  height: 375px;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
-  margin: 15px 30px 15px 30px;
+  margin: 10px 5px 10px 5px;
   h3 {
     font-size: 22px;
     margin-bottom: 30px;
@@ -29,7 +29,8 @@
 .trip-card-price {
   margin-top: 40px;
   text-align: right;
-  font-size: 12px;
+  font-size: 10px;
+  font-weight: bold;
 }
 
 .trip-card-recap {

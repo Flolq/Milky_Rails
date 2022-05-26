@@ -23,7 +23,9 @@ class TripsController < ApplicationController
     @markers = spatioports.compact.map do |spatioport|
       {
         lat: spatioport.latitude,
-        lng: spatioport.longitude
+        lng: spatioport.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { spatioport: spatioport }),
+        image_url: helpers.asset_url("rocket.jpg")
       }
     end
   end
@@ -46,7 +48,7 @@ class TripsController < ApplicationController
     @trip.owner = current_user
 
     if @trip.save!
-      redirect_to trip_path(@trip)
+      redirect_to user_path(current_user)
     else
       render :new
     end

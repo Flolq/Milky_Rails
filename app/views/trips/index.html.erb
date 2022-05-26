@@ -18,27 +18,40 @@
     <input type="text" id="destination" name="destination" placeholder="Type your destination" class="search-form-input">
     <button type="submit" class="small-btn-transparent"><span>Search</span></button>
   </form>
-  <div class="row">
 
+<div class="center"><button type="button" class="big-btn-full" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><span>Show the spatioports</span></button></div>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id=mapModal>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+     <div style="width: 900px; height: 500px;"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
+  </div>
+</div>
+
+  <div class="row">
       <% if @trips == [] %>
         <p class="vh">Sorry no available trips with your criterias ... Han Solo is busy</p>
       <% else %>
         <% @trips.each do |trip| %>
-          <div class="col-4">
+          <div class="col-3">
             <%= link_to trip_path(trip) do %>
               <div class="trip-card">
                 <div class="trip-card-img" style="background-image: url(<%= cl_image_path trip.photo.key %>);"></div>
                 <div class="trip-card-content">
                   <h3><%= "Trip to #{trip.destination}" %></h3>
+                  <p>Departure : <%= trip.spatioport.name %></p>
                   <p>Minimum duration : <%= trip.min_duration %></p>
-                  <p>Maximum capacity of the spaceship : <%= trip.shuttle.max_capacity %></p>
+                  <p>Spaceship's maximum capacity : <%= trip.shuttle.max_capacity %></p>
                   <div class="trip-card-price"> <%= number_with_delimiter(trip.price_per_day, :delimiter => ' ') %> Galactic credits / day</p></div>
                 </div>
               </div>
             <% end %>
           </div>
       <% end %>
-      <div style="width: 100%; height: 600px;"
+      <div style="width: 100%; height: 1000px;"
         data-controller="mapbox"
         data-mapbox-markers-value="<%= @markers.to_json %>"
         data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
