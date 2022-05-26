@@ -1,7 +1,8 @@
 <div class="container">
   <div>
-  <% if cl_image_tag @user.photo.key %>
-    <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+
+  <% if @user.photo.attached? %>
+    <%= cl_image_tag @user.photo.key, height: 300, width: 400 %>
   <% end %>
   </div>
   <div>
