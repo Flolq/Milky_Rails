@@ -13,17 +13,104 @@ Booking.destroy_all
 Trip.destroy_all
 User.destroy_all
 Shuttle.destroy_all
+Spatioport.destroy_all
 
 puts 'We want the shuttles ...'
 
-20.times do
-  Shuttle.create!(
-    model: Faker::Movies::StarWars.vehicle,
-    max_capacity: (2...10).to_a.sample
-  )
-end
+file = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
 
-puts 'We have now twenty of them'
+shuttle = Shuttle.create!(
+  model: "TIE Silencer",
+  max_capacity: (2...10).to_a.sample
+)
+
+shuttle.photo.attach(io: file, filename: '', content_type: 'image/jpg')
+
+file = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
+
+Shuttle.create!(
+  model: "Rey's Speeder",
+  max_capacity: (2...10).to_a.sample
+)
+
+shuttle.photo.attach(io: file, filename: '', content_type: 'image/jpg')
+
+file = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
+
+Shuttle.create!(
+  model: "Naboo N-1 Starfighter",
+  max_capacity: (2...10).to_a.sample
+)
+
+shuttle.photo.attach(io: file, filename: '', content_type: 'image/jpg')
+
+file = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
+
+Shuttle.create!(
+  model: "Imperial Shuttle",
+  max_capacity: (2...10).to_a.sample
+)
+
+shuttle.photo.attach(io: file, filename: '', content_type: 'image/jpg')
+
+file = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
+
+Shuttle.create!(
+  model: "Imperial Star Destroyer",
+  max_capacity: (2...10).to_a.sample
+)
+
+shuttle.photo.attach(io: file, filename: '', content_type: 'image/jpg')
+
+file = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
+
+Shuttle.create!(
+  model: "Millenium Falcon",
+  max_capacity: (2...10).to_a.sample
+)
+
+shuttle.photo.attach(io: file, filename: '', content_type: 'image/jpg')
+
+file = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
+
+Shuttle.create!(
+  model: "Ghost",
+  max_capacity: (2...10).to_a.sample
+)
+
+shuttle.photo.attach(io: file, filename: '', content_type: 'image/jpg')
+
+file = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
+
+Shuttle.create!(
+  model: "First Order TIE Fighter",
+  max_capacity: (2...10).to_a.sample
+)
+
+shuttle.photo.attach(io: file, filename: '', content_type: 'image/jpg')
+
+file = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
+
+Shuttle.create!(
+  model: "Imperial Shuttle",
+  max_capacity: (2...10).to_a.sample
+)
+
+shuttle.photo.attach(io: file, filename: '', content_type: 'image/jpg')
+
+file = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
+
+Shuttle.create!(
+  model: "Phantom II",
+  max_capacity: (2...10).to_a.sample
+)
+
+shuttle.photo.attach(io: file, filename: '', content_type: 'image/jpg')
+
+file = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
+
+
+puts 'We have now ten of them'
 
 puts 'Creating five spaceships owners with each 5 trips'
 
