@@ -9,21 +9,26 @@
         <p>Space has never been so close</p>
       </div>
     </div>
-  </div>
-  <div class="navbar-right-box">
-    <div class="nav-item">
-      <div class="dropstart">
-        <button class="btn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-          <img class="avatar" src="https://i.pinimg.com/originals/0a/dd/87/0add874e1ea0676c4365b2dd7ddd32e3.jpg" />
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <% if user_signed_in? %>
-            <li class="dropdown-item"> <%=  link_to "Dashboard", user_path(current_user)%></li>
-          <% end %>
-          <li><a class="dropdown-item" href="#">Log out</a></li>
-        </ul>
+
+    <div class="navbar-right-box">
+      <div class="nav-item">
+        <div class="dropstart">
+          <button class="btn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            <% if current_user %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar", width: 70, height: 70, crop: :fill  %>
+            <% else %>
+              <img class="avatar" src="https://i.pinimg.com/originals/0a/dd/87/0add874e1ea0676c4365b2dd7ddd32e3.jpg" />
+            <% end %>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <% if current_user %>
+              <li class="dropdown-item"> <%=  link_to "Dashboard", user_path(current_user)%></li>
+            <% end %>
+            <li><a class="dropdown-item" href="#">Log out</a></li>
+          </ul>
+          </div>
         </div>
-      </div>
+        </div>
       </div>
     </div>
   </div>
