@@ -15,8 +15,7 @@
           <img class="avatar" src="https://i.pinimg.com/originals/0a/dd/87/0add874e1ea0676c4365b2dd7ddd32e3.jpg" />
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <li><a class="dropdown-item" href="#">Profil</a></li>
-          <li class="dropdown-item"><%= link_to "Your trip", user_path(@user)%></li>
+          <li class="dropdown-item"><%= link_to "Dashboard", user_path(current_user)%></li>
           <li><a class="dropdown-item" href="#">Log out</a></li>
         </ul>
         </div>

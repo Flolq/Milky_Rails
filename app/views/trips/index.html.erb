@@ -24,15 +24,18 @@
         <p class="vh">Sorry no available trips with your criterias ... Han Solo is busy</p>
       <% else %>
         <% @trips.each do |trip| %>
-         <div class="col-4">
-          <div class="trip-card">
-            <div class="trip-card-img" style="background-image: url(<%= image_path 'space.jpg' %>);"></div>
-            <div class="trip-card-content">
-              <h3><%= link_to "Trip to #{trip.destination}", trip_path(trip) %></h3>
-              <p>Minimum duration : <%= trip.min_duration %></p>
-              <p>Maximum capacity of the spaceship : <%= trip.shuttle.max_capacity %></p>
-              <div class="trip-card-price"> <%= number_with_delimiter(trip.price_per_day, :delimiter => ' ') %> Galactic credits / day</p></div>
-            </div>
+          <div class="col-4">
+            <%= link_to trip_path(trip) do %>
+              <div class="trip-card">
+                <div class="trip-card-img" style="background-image: url(<%= image_path 'space.jpg' %>);"></div>
+                <div class="trip-card-content">
+                  <h3><%= "Trip to #{trip.destination}" %></h3>
+                  <p>Minimum duration : <%= trip.min_duration %></p>
+                  <p>Maximum capacity of the spaceship : <%= trip.shuttle.max_capacity %></p>
+                  <div class="trip-card-price"> <%= number_with_delimiter(trip.price_per_day, :delimiter => ' ') %> Galactic credits / day</p></div>
+                </div>
+              </div>
+            <% end %>
           </div>
       <% end %>
       <div style="width: 100%; height: 600px;"
