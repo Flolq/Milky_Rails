@@ -12,6 +12,7 @@
     </div>
     <div>
       <h3>Total price = <%=number_with_delimiter(@trip.price_per_day * @duration, :delimiter => ' ') %> Galactic credits</h3>
+    </div>
   </div>
    <%= link_to "Back to homepage", trips_path %>
    <%= link_to "Your trips", user_path(@user)%>
