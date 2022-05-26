@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="title">
     <h1>Book your space trip !</h1>
@@ -35,8 +34,14 @@
               <div class="trip-card-price"> <%= number_with_delimiter(trip.price_per_day, :delimiter => ' ') %> Galactic credits / day</p></div>
             </div>
           </div>
-        </div>
       <% end %>
+      <div style="width: 100%; height: 600px;"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     <% end %>
   </div>
 </div>
+
+<div><%= link_to "Back to Homepage", trips_path %></div>

@@ -1,6 +1,6 @@
 <div class="container">
   <div>
-  <% if cl_image_tag @user.photo.key %>
+  <% if @user.photo.attached? %>
     <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
   </div>
@@ -20,7 +20,7 @@
         <div class="trip-card">
           <div class="trip-card-img" style="background-image: url(<%= image_path 'space.jpg' %>);"></div>
           <div class="trip-card-content">
-            <h3><%= link_to "Trip to #{trip.destination}", trip_path(trip) %></h3>
+            <h3>Trip to:<%= trip.destination %></h3>
             <p>Minimum duration : <%= trip.min_duration %></p>
             <p>Maximum capacity of the spaceship : <%= trip.shuttle.max_capacity %></p>
             <div class="trip-card-price"> <%= number_with_delimiter(trip.price_per_day, :delimiter => ' ') %> Galactic credits / day</p></div>
@@ -30,11 +30,29 @@
       <% end %>
   </div>
 
+
+    <h2>Your booked trips</h2>
+  <div class="row">
+    <% @user.bookings.each do |booking| %>
+      <div class="col-4">
+        <div class="trip-card">
+          <div class="trip-card-img" style="background-image: url(<%= image_path 'space.jpg' %>);"></div>
+          <div class="trip-card-content">
+            <h3>Trip to: <%= booking.trip.destination %></h3>
+            <p>Departure: <%= booking.start_date %></p>
+            <p>Return: <%= booking.end_date %></p>
+            <div class="trip-card-price"> Total price = <%= number_with_delimiter(booking.trip.price_per_day*(booking.end_date-booking.start_date).to_i, :delimiter => ' ') %> Galactic credits</p></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+
   <%= link_to "Create a trip", new_user_trip_path(@user) %>
-  <%= link_to "Delete user",
+  <%= link_to "Delete your account",
             user_path(@user),
             method: :delete,
             data: { confirm: "Are you sure?" }  %>
-  <%= link_to "Back to users", users_path  %>
+  <%= link_to "Back to homepage", trips_path  %>
 
 </div>
