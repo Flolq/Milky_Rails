@@ -8,3 +8,15 @@
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
+
+.new-trip-form-description {
+  textarea {
+    height: 123px;
+    border: 10px solid $blue;
+  }
+}
+
+.form-control, .form-select{
+  border-radius: 10px;
+  border: 2px solid $blue;
+}

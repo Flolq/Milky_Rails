@@ -1,9 +1,37 @@
-<%= simple_form_for [@user, @trip] do |f| %>
-  <%= f.input :destination %>
-  <%= f.input :price_per_day %>
-  <%= f.input :min_duration %>
-  <%= f.association :shuttle %>
-  <%= f.association :spatioport %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit %>
+<%= simple_form_for [@user, @trip], class: 'new-trip-form' do |f| %>
+  <div class="row">
+    <div class="col-5">
+      <%= f.input :destination %>
+      <%= f.input :price_per_day %>
+    </div>
+    <div class="col-1">
+    </div>
+    <div class="col-6">
+      <div class="new-trip-form-description">
+        <%= f.input :description %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-5">
+      <%= f.input :min_duration %>
+      <%= f.association :shuttle, label_method: :model %>
+    </div>
+    <div class="col-1">
+    </div>
+    <div class="col-6">
+      <%= f.association :spatioport %>
+      <%= f.input :photo, as: :file %>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="offset-5">
+      <div class="col-2">
+        <div class="big-btn-full">
+          <span><%= f.button :submit %></span>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>

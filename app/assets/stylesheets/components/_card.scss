@@ -1,9 +1,9 @@
 .trip-card {
   background-color: white;
   border-radius: 10px;
-  height: 350px;
+  height: 375px;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
-  margin: 15px 30px 15px 30px;
+  margin: 10px 5px 10px 5px;
   h3 {
     font-size: 22px;
     margin-bottom: 30px;
@@ -29,7 +29,8 @@
 .trip-card-price {
   margin-top: 40px;
   text-align: right;
-  font-size: 12px;
+  font-size: 10px;
+  font-weight: bold;
 }
 
 .trip-card-recap {
@@ -42,6 +43,10 @@
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
   margin-top: 15px;
   margin-bottom: 15px;
+  h3 {
+    font-size: 15px;
+    font-weight: bolder;
+  }
 }
 
 .trip-card-recap-img {
@@ -278,7 +283,7 @@
 
 .card-congrats {
   background-image: url("congrats.jpeg");
-  filter: grayscale(30%);
+  // filter: grayscale(30%);
   background-size: cover;
   background-position: left;
   display: flex;
@@ -287,8 +292,8 @@
   flex-direction: column;
   border-radius: 10px;
   height: 350px;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
-  margin: 15px 30px 15px 30px;
+  box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.75);
+  margin: 40px 30px 15px 30px;
     h1 {
     background: $gradient;
     -webkit-background-clip: text;
@@ -314,6 +319,18 @@
     margin-bottom: 0px;
     font-size: 11px;
     font-weight: lighter;
-
   }
+}
+
+.card-congrats-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.margin {
+  margin-left: 20px;
+}
+
+.margin-button {
+  margin: 20px;
 }

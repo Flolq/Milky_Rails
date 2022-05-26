@@ -1,58 +1,72 @@
 <div class="container">
   <div>
   <% if @user.photo.attached? %>
-    <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+    <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill, class: "avatar" %>
   <% end %>
   </div>
   <div>
-    <div>
-      <h2>User detail</h2>
-    </div>
-    <div>
-      <p><%= @user.first_name %> <%= @user.last_name %> </p>
-
+    <div class="title">
+      <p>Hi, <%= @user.first_name %> <%= @user.last_name %> ! 🚀</p>
     </div>
   </div>
   <h2>Your proposed trips</h2>
   <div class="row">
     <% @user.my_trips.each do |trip| %>
-      <div class="col-4">
-        <div class="trip-card">
-          <div class="trip-card-img" style="background-image: url(<%= image_path 'space.jpg' %>);"></div>
-          <div class="trip-card-content">
-            <h3>Trip to:<%= trip.destination %></h3>
-            <p>Minimum duration : <%= trip.min_duration %></p>
-            <p>Maximum capacity of the spaceship : <%= trip.shuttle.max_capacity %></p>
-            <div class="trip-card-price"> <%= number_with_delimiter(trip.price_per_day, :delimiter => ' ') %> Galactic credits / day</p></div>
+    <div class="col-4">
+      <div class="trip-card-recap margin">
+        <div class="trip-card-recap-content">
+          <div class="trip-card-recap-text">
+            <div  class="trip-card-recap-infos">
+              <h3>Trip to: <%= trip.destination %></h3>
+              <div>Minimum duration : <%= trip.min_duration %></div>
+              <div>Maximum capacity of the spaceship : <%= trip.shuttle.max_capacity %></div>
+              <div> <%= number_with_delimiter(trip.price_per_day, :delimiter => ' ') %> Galactic credits / day</div>
             </div>
           </div>
+          <div class="trip-card-recap-img" style="background-image: url(<%= cl_image_path trip.photo.key %>);"></div>
         </div>
+        <div class="button-card-recap">
+          <div class="small-btn-full"><span><%= link_to "See details", trip_path(trip) %></span></div>
+        </div>
+      </div>
+    </div>
       <% end %>
   </div>
+  <div class="small-btn-full col-2 margin"><span><%= link_to "Create a new trip", new_user_trip_path(@user) %></span></div>
 
-
+  <div class="title">
     <h2>Your booked trips</h2>
+  </div>
+
   <div class="row">
     <% @user.bookings.each do |booking| %>
       <div class="col-4">
-        <div class="trip-card">
-          <div class="trip-card-img" style="background-image: url(<%= image_path 'space.jpg' %>);"></div>
-          <div class="trip-card-content">
-            <h3>Trip to: <%= booking.trip.destination %></h3>
-            <p>Departure: <%= booking.start_date %></p>
-            <p>Return: <%= booking.end_date %></p>
-            <div class="trip-card-price"> Total price = <%= number_with_delimiter(booking.trip.price_per_day*(booking.end_date-booking.start_date).to_i, :delimiter => ' ') %> Galactic credits</p></div>
+        <div class="trip-card-recap margin">
+          <div class="trip-card-recap-content">
+            <div class="trip-card-recap-text">
+              <div  class="trip-card-recap-infos">
+                <h3>Trip to: <%= booking.trip.destination %></h3>
+                <div>Departure: <%= booking.start_date %></div>
+                <div>Return: <%= booking.end_date %></div>
+                <div> Total price = <%= number_with_delimiter(booking.trip.price_per_day*(booking.end_date-booking.start_date).to_i, :delimiter => ' ') %> Galactic credits</p></div>
+              </div>
             </div>
+            <div class="trip-card-recap-img" style="background-image: url(<%= cl_image_path booking.trip.photo.key %>);"></div>
           </div>
+          <%# <div class="button-card-recap"> %>
+            <%# <div class="small-btn-full"><span><%= link_to "See details", booking_path(booking) %></span></div>
+          <%# </div> %>
         </div>
+      </div>
       <% end %>
+
+    <div class="small-btn-full col-2 margin"><span><%= link_to "Back to trips", trips_path %></span></div>
   </div>
 
-  <%= link_to "Create a trip", new_user_trip_path(@user) %>
-  <%= link_to "Delete your account",
+
+
+  <%# <%= link_to "Delete your account",
             user_path(@user),
             method: :delete,
             data: { confirm: "Are you sure?" }  %>
-  <%= link_to "Back to homepage", trips_path  %>
-
 </div>

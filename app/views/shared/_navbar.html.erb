@@ -1,11 +1,13 @@
 <div class="navbar">
-  <div class="navbar-left-box">
-  <%= link_to trips_path do %>
-    <%= image_tag 'logo_white.png' %>
-  <% end %>
-    <div class="navbar-text">
-      <h1>Milky Rails</h1>
-      <p>Space has never been so close</p>
+  <div class="container">
+    <div class="navbar-left-box">
+    <%= link_to trips_path do %>
+      <%= image_tag 'logo_white.png' %>
+    <% end %>
+      <div class="navbar-text">
+        <h1>Milky Rails</h1>
+        <p>Space has never been so close</p>
+      </div>
     </div>
   </div>
   <div class="navbar-right-box">
@@ -16,13 +18,13 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <% if user_signed_in? %>
-            <li class="dropdown-item"> <%  link_to "Dashboard", user_path(current_user)%></li>
+            <li class="dropdown-item"> <%=  link_to "Dashboard", user_path(current_user)%></li>
           <% end %>
           <li><a class="dropdown-item" href="#">Log out</a></li>
         </ul>
         </div>
       </div>
-    </div>
+      </div>
     </div>
   </div>
 </div>
