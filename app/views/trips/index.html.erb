@@ -1,7 +1,6 @@
-
 <div class="container">
+  <%= link_to "Your trips", user_path(@user)%>
   <h1>Book your space trip !</h1>
-  <%= link_to "Your trip", user_path(@user)%>
   <form action="/trips" method="get" class="search-form">
       <!-- <select id="departure" name="departure">
       <option value="">Departure</option>
@@ -9,32 +8,33 @@
       <option value="2">New York</option>
       <option value="3">London</option> -->
     <label for="start_date" class="search-form-label">From:</label>
-    <input type="date" id="start_date" name="start_date" class="search-form-input">
-    <label for="end_date" class="search-form-label">From:</label>
-    <input type="date" id="end_date" name="end_date" class="search-form-input">
+    <input type="date" id="start_date" name="start_date" class="search-form-input" required>
+    <label for="end_date" class="search-form-label" required>From:</label>
+    <input type="date" id="end_date" name="end_date" class="search-form-input" required>
     <label for="number_of_travellers" class="search-form-label">Number:</label>
-    <input type="text" id="number_of_travellers" name="number_of_travellers" placeholder="Number of travellers ?" class="search-form-input">
+    <input type="text" id="number_of_travellers" name="number_of_travellers" placeholder="Number of travellers" class="search-form-input" required>
     <label for="destination" class="search-form-label">Destination</label>
-    <input type="text" id="destination" name="destination" placeholder="Type your destination" class="search-form-input">
+    <input type="text" id="destination" name="destination" placeholder="Type your destination" class="search-form-input" required>
     <button type="submit" class="small-btn-transparent"><span>Search</span></button>
   </form>
   <div class="row">
-
-      <% if @trips == [] %>
-        <p>Sorry no available trips with your criterias ... Han Solo is busy</p>
-      <% else %>
-        <% @trips.each do |trip| %>
-         <div class="col-4">
-          <div class="trip-card">
-            <div class="trip-card-img" style="background-image: url(<%= image_path 'space.jpg' %>);"></div>
-            <div class="trip-card-content">
-              <h3><%= link_to "Trip to #{trip.destination}", trip_path(trip) %></h3>
-              <p>Minimum duration : <%= trip.min_duration %></p>
-              <p>Maximum capacity of the spaceship : <%= trip.shuttle.max_capacity %></p>
-              <div class="trip-card-price"> <%= number_with_delimiter(trip.price_per_day, :delimiter => ' ') %> Galactic credits / day</p></div>
-            </div>
+    <% if @trips == [] %>
+      <p>Sorry no available trips with your criterias ... Han Solo is busy</p>
+    <% else %>
+      <% @trips.each do |trip| %>
+          <div class="col-4">
+              <div class="trip-card">
+                <%= link_to trip_path(trip) do %>
+                  <div class="trip-card-img" style="background-image: url(<%= image_path 'space.jpg' %>);"></div>
+                  <div class="trip-card-content">
+                    <h3>Trip to <%= trip.destination %></h3>
+                    <p>Minimum duration : <%= trip.min_duration %></p>
+                    <p>Maximum capacity of the spaceship : <%= trip.shuttle.max_capacity %></p>
+                    <div class="trip-card-price"> <%= number_with_delimiter(trip.price_per_day, :delimiter => ' ') %> Galactic credits / day</p></div>
+                  </div>
+                <% end %>
+              </div>
           </div>
-        </div>
       <% end %>
       <div style="width: 100%; height: 600px;"
         data-controller="mapbox"
@@ -44,5 +44,4 @@
     <% end %>
   </div>
 </div>
-
 <div><%= link_to "Back to Homepage", trips_path %></div>

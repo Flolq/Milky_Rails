@@ -4,18 +4,8 @@ class TripsController < ApplicationController
 
   def index
     @user = current_user
-    if (params[:end_date].nil? && params[:start_date].nil? && params[:destination].nil?) || (params[:end_date] == "" && params[:start_date] == "" && params[:destination] == "")
+    if params[:end_date].blank? && params[:start_date].blank? && params[:destination].blank?
       @trips = Trip.all
-    elsif (params[:end_date] == "" || params[:start_date] == "") && params[:destination].nil? == false
-      destination = params[:destination].titleize
-      @trips = Trip.where("destination = ?", destination)
-    elsif params[:end_date].nil? == false && params[:start_date].nil? == false && params[:destination] == ""
-      start_detail = params[:start_date].split("-")
-      start_date = Date.new(start_detail[0].to_i, start_detail[1].to_i, start_detail[2].to_i)
-      end_detail = params[:end_date].split("-")
-      end_date = Date.new(end_detail[0].to_i, end_detail[1].to_i, end_detail[2].to_i)
-      duration = (end_date - start_date).to_i
-      @trips = Trip.where("min_duration < ?", (duration + 1))
     else
       start_detail = params[:start_date].split("-")
       start_date = Date.new(start_detail[0].to_i, start_detail[1].to_i, start_detail[2].to_i)
@@ -23,7 +13,8 @@ class TripsController < ApplicationController
       end_date = Date.new(end_detail[0].to_i, end_detail[1].to_i, end_detail[2].to_i)
       duration = (end_date - start_date).to_i
       destination = params[:destination].titleize
-      @trips = Trip.where("min_duration < ? and destination = ?", (duration + 1), destination)
+      number_of_travellers = params[:number_of_travellers].to_i
+      @trips = Trip.joins(:shuttle).where("min_duration < ? and destination = ? and max_capacity >= ?", (duration + 1), destination, (number_of_travellers))
     end
     session[:my_params] = params
     spatioports = @trips.map do |trip|
@@ -38,9 +29,11 @@ class TripsController < ApplicationController
   end
 
   def show
+    @details = session[:my_params]
   end
 
   def booked
+    @user = current_user
   end
 
   def new

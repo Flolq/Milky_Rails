@@ -44,6 +44,11 @@
           </div>
         </div>
       </div>
-    <div class="big-btn-transparent"><%= link_to "Book your trip", booked_path %></div>
+    <div class="big-btn-transparent">
+    <% if @details == {"controller"=>"trips", "action"=>"index"} %>
+        <%= link_to "Enter your criteria", trips_path %></div>
+    <% else %>
+        <%= link_to "Book your trip", trip_bookings_path(@trip), method: :post %></div>
+    <% end %>
   <%= link_to "Back to homepage", trips_path %>
 </div>
