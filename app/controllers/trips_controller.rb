@@ -3,6 +3,7 @@ class TripsController < ApplicationController
   before_action :trip_details, only: [:show, :booked]
 
   def index
+    @user = current_user
     if (params[:end_date].nil? && params[:start_date].nil? && params[:destination].nil?) || (params[:end_date] == "" && params[:start_date] == "" && params[:destination] == "")
       @trips = Trip.all
     elsif (params[:end_date] == "" || params[:start_date] == "") && params[:destination].nil? == false
@@ -69,7 +70,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:destination, :price_per_day, :min_duration, :photo)
+    params.require(:trip).permit(:destination, :price_per_day, :min_duration, :photo, :shuttle_id)
   end
 
   def set_trip
