@@ -16,7 +16,7 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <% if user_signed_in? %>
-            <li class="dropdown-item"> <%  link_to "Dashboard", user_path(current_user)%></li>
+            <li class="dropdown-item"> <%=  link_to "Dashboard", user_path(current_user)%></li>
           <% end %>
           <li><a class="dropdown-item" href="#">Log out</a></li>
         </ul>
