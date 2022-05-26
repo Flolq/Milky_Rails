@@ -111,8 +111,11 @@ puts 'We have now ten of them'
 
 puts 'Let create 10 spatioports'
 
+cities = ["Paris", "New-York", "Washington", "London", "Madrid", "Bordeaux", "Munich", "Berlin", "Moscow",
+          "Tokyo", "Sydney", "Mexico", "Roma", "Toronto"]
+
 10.times do
-  city = Faker::Address.city
+  city = cities.sample
   Spatioport.create!(
     name: "Spatioport of #{city} city",
     address: city
