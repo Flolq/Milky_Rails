@@ -111,7 +111,7 @@
 }
 
 .card-invoice-text {
-  background: -webkit-linear-gradient(#FF4D00, #FFCA00);
+  background: $webkit-gradient;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
