@@ -1,27 +1,28 @@
 
 <div class="container">
-  <h1>Book your space trip !</h1>
-  <%= link_to "Your trip", user_path(@user)%>
+  <div class="title">
+    <h1>Book your space trip !</h1>
+  </div>
   <form action="/trips" method="get" class="search-form">
       <!-- <select id="departure" name="departure">
       <option value="">Departure</option>
       <option value="1">Paris</option>
       <option value="2">New York</option>
       <option value="3">London</option> -->
-    <label for="start_date" class="search-form-label">From:</label>
+    <label for="start_date" class="search-form-label">From: </label>
     <input type="date" id="start_date" name="start_date" class="search-form-input">
-    <label for="end_date" class="search-form-label">From:</label>
+    <label for="end_date" class="search-form-label">From: </label>
     <input type="date" id="end_date" name="end_date" class="search-form-input">
-    <label for="number_of_travellers" class="search-form-label">Number:</label>
+    <label for="number_of_travellers" class="search-form-label">Number: </label>
     <input type="text" id="number_of_travellers" name="number_of_travellers" placeholder="Number of travellers ?" class="search-form-input">
-    <label for="destination" class="search-form-label">Destination</label>
+    <label for="destination" class="search-form-label">Destination: </label>
     <input type="text" id="destination" name="destination" placeholder="Type your destination" class="search-form-input">
     <button type="submit" class="small-btn-transparent"><span>Search</span></button>
   </form>
   <div class="row">
 
       <% if @trips == [] %>
-        <p>Sorry no available trips with your criterias ... Han Solo is busy</p>
+        <p class="vh">Sorry no available trips with your criterias ... Han Solo is busy</p>
       <% else %>
         <% @trips.each do |trip| %>
          <div class="col-4">
@@ -39,5 +40,3 @@
     <% end %>
   </div>
 </div>
-
-<div><%= link_to "Back to Homepage", trips_path %></div>

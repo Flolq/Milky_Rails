@@ -1,7 +1,27 @@
 <div class="navbar">
-  <%= image_tag 'logo_white.png' %>
-  <div class="navbar-text">
-    <h1>Milky Rails</h1>
-    <p>Space has never been so close</p>
+  <div class="navbar-left-box">
+  <%= link_to trips_path do %>
+    <%= image_tag 'logo_white.png' %>
+  <% end %>
+    <div class="navbar-text">
+      <h1>Milky Rails</h1>
+      <p>Space has never been so close</p>
+    </div>
+  </div>
+  <div class="navbar-right-box">
+    <div class="nav-item">
+      <div class="dropstart">
+        <button class="btn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          <img class="avatar" src="https://i.pinimg.com/originals/0a/dd/87/0add874e1ea0676c4365b2dd7ddd32e3.jpg" />
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item" href="#">Profil</a></li>
+          <li class="dropdown-item"><%= link_to "Your trip", user_path(@user)%></li>
+          <li><a class="dropdown-item" href="#">Log out</a></li>
+        </ul>
+        </div>
+      </div>
+    </div>
+    </div>
   </div>
 </div>
