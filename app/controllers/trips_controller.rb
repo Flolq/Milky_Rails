@@ -32,7 +32,16 @@ class TripsController < ApplicationController
 
   def show
     @details = session[:my_params]
+    spatioport = @trip.spatioport
+    @markers = {
+        lat: spatioport.latitude,
+        lng: spatioport.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { spatioport: spatioport }),
+        image_url: helpers.asset_url("rocket.jpg")
+      }
+
   end
+
 
   def booked
     @user = current_user
