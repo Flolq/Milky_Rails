@@ -26,6 +26,15 @@ class TripsController < ApplicationController
       @trips = Trip.where("min_duration < ? and destination = ?", (duration + 1), destination)
     end
     session[:my_params] = params
+    spatioports = @trips.map do |trip|
+      trip.spatioport
+    end
+    @markers = spatioports.compact.map do |spatioport|
+      {
+        lat: spatioport.latitude,
+        lng: spatioport.longitude
+      }
+    end
   end
 
   def show
@@ -70,7 +79,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:destination, :price_per_day, :min_duration, :photo, :shuttle_id)
+    params.require(:trip).permit(:destination, :price_per_day, :min_duration, :photo, :shuttle_id, :spatioport_id)
   end
 
   def set_trip
