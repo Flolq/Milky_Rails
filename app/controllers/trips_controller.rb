@@ -23,7 +23,9 @@ class TripsController < ApplicationController
     @markers = spatioports.compact.map do |spatioport|
       {
         lat: spatioport.latitude,
-        lng: spatioport.longitude
+        lng: spatioport.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { spatioport: spatioport }),
+        image_url: helpers.asset_url("rocket.jpg")
       }
     end
   end
