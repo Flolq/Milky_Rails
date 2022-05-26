@@ -14,14 +14,9 @@
   </head>
 
   <body>
-    <div class="navbar">
-      <%= image_tag 'logo_white.png' %>
-      <div class="navbar-text">
-        <h1>Milky Rails</h1>
-        <p>Space has never been so close</p>
-      </div>
-    </div>
+    <%= render 'shared/navbar' %>
     <%= yield %>
     <%= render 'shared/flashes' %>
+    <%= render 'shared/footer' %>
   </body>
 </html>

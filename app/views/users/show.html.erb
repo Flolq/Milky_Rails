@@ -2,7 +2,7 @@
   <div>
   <% if cl_image_tag @user.photo.key %>
     <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
+  <% end %>
   </div>
   <div>
     <div>
@@ -12,9 +12,25 @@
       <p><%= @user.first_name %> <%= @user.last_name %> </p>
 
     </div>
-
+  </div>
+  <h2>Your proposed trips</h2>
+  <div class="row">
+    <% @user.my_trips.each do |trip| %>
+      <div class="col-4">
+        <div class="trip-card">
+          <div class="trip-card-img" style="background-image: url(<%= image_path 'space.jpg' %>);"></div>
+          <div class="trip-card-content">
+            <h3><%= link_to "Trip to #{trip.destination}", trip_path(trip) %></h3>
+            <p>Minimum duration : <%= trip.min_duration %></p>
+            <p>Maximum capacity of the spaceship : <%= trip.shuttle.max_capacity %></p>
+            <div class="trip-card-price"> <%= number_with_delimiter(trip.price_per_day, :delimiter => ' ') %> Galactic credits / day</p></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
   </div>
 
+  <%= link_to "Create a trip", new_user_trip_path(@user) %>
   <%= link_to "Delete user",
             user_path(@user),
             method: :delete,
