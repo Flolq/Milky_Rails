@@ -12,7 +12,7 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/ngntai/cl3n1a63k003315msi04cq4zd"
+      style: "mapbox://styles/ngntai/cl3n1a63k003315msi04cq4zd",
     })
 
     this.#addMarkersToMap()
@@ -41,6 +41,6 @@ export default class extends Controller {
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 6, duration: 1500 })
   }
 }
