@@ -31,6 +31,23 @@ width: 60px;
   margin-top: 20px;
 }
 
+.dashboard-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 20px;
+  h3 {
+    margin-left: 40px;
+  }
+}
+
+.dashboard-img {
+  background-size: cover;
+  background-position: center;
+
+}
+
 .title-dashboard {
   margin-top: 20px;
 }
