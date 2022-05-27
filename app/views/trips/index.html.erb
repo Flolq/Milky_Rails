@@ -39,13 +39,15 @@
           <div class="col-3">
             <%= link_to trip_path(trip) do %>
               <div class="trip-card">
-                <div class="trip-card-img" style="background-image: url(<%= cl_image_path trip.photo.key %>);"></div>
+                <div class="trip-card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(<%= cl_image_path trip.photo.key %>);"><h2 class="visibility"><%= "#{trip.destination}" %></h2></div>
                 <div class="trip-card-content">
                   <h3><%= "Trip to #{trip.destination}" %></h3>
-                  <p>Departure : <%= trip.spatioport.name %></p>
-                  <p>Minimum duration : <%= trip.min_duration %></p>
-                  <p>Spaceship's maximum capacity : <%= trip.shuttle.max_capacity %></p>
-                  <div class="trip-card-price"> <%= number_with_delimiter(trip.price_per_day, :delimiter => ' ') %> Galactic credits / day</p></div>
+                  <div class="trip-card-content-align">
+                    <p>Departure : <%= trip.spatioport.name %></p>
+                    <p>Minimum duration : <%= trip.min_duration %></p>
+                    <p>Spaceship's maximum capacity : <%= trip.shuttle.max_capacity %></p>
+                    <div class="trip-card-price"> <%= number_with_delimiter(trip.price_per_day, :delimiter => ' ') %> Galactic credits / day</p></div>
+                  </div>
                 </div>
               </div>
             <% end %>
