@@ -1,14 +1,12 @@
 <div class="container">
-  <div class ="row margin">
-    <div class="col-6">
-      <div class="avatar-marging">
-        <% if @user.photo.attached? %>
-        <%= cl_image_tag @user.photo.key, height: 300, width: 500, crop: :fill %>
-        <% end %>
-      </div>
+  <div class ="dashboard-title">
+    <div class="dahsboard-img">
+      <% if @user.photo.attached? %>
+      <%= cl_image_tag @user.photo.key, height: 225, width: 375 %>
+      <% end %>
     </div>
-    <div class="col-6 centre">
-        <h1>Hi, <%= @user.first_name %> <%= @user.last_name %> ! 🚀</h1>
+    <div>
+        <h3>Hi, <%= @user.first_name %> <%= @user.last_name %> ! 🚀</h3>
     </div>
   </div>
 
@@ -83,4 +81,5 @@
       </div>
       <% end %>
     </div>
+  </div>
 </div>

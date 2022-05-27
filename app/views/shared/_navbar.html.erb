@@ -15,7 +15,7 @@
         <div class="dropstart">
           <button class="btn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
             <% if current_user %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar", width: 70, height: 70, crop: :fill  %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar", width: 70, height: 70, crop: :fill %>
             <% else %>
               <img class="avatar" src="https://i.pinimg.com/originals/0a/dd/87/0add874e1ea0676c4365b2dd7ddd32e3.jpg" />
             <% end %>
