@@ -18,13 +18,6 @@ export default class extends Controller {
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
 
-    ('#mapModal').on('show.bs.modal', function(){
-      setTimeout(function() {
-        this.map.resize();
-      }, 10);
-  })
-
-
   }
 
   #addMarkersToMap() {
