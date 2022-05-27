@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @requests = Booking.joins(:trip).where("trips.user_id = ?", current_user.id)
   end
 
   def edit
