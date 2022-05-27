@@ -126,6 +126,21 @@ puts 'Done!'
 
 puts 'AAAAAAAAAND this is our user with its trips and bookings'
 
+trip_description = [
+  "In board of my ship, you're going to reach between 5 and 10 orgasms. It's scientifically proved.
+  Moreover, inside these orgasms, you're going to have smaller orgasms. Again, it's science. And good piloting.
+  And the ship too. Oh, and by the way, you're going to enjoy your destination, because space is cool but planets
+  are even cooler. Let's meet and fly to infinite space together, for an amazing trip.",
+  "Thanks to MilkyRails, I am a billionaire now and I got back with my ex-wife too. Thanks to you, I could make even more
+  money and I could get back with more of my exes. Come on, come with me and have some taste of my life.",
+  "The world, when you look at it, it just can't be random. I mean, it's so different than the vast emptiness that is
+  everything else, and even all the other planets we've seen, at least in our solar system,
+   none of them even remotely resemble the precious life-giving nature of our own planet.",
+  "Don't listen to other pilot, I never had space crashed, it's legends for young ones. You're not a baby right?
+  So don't trust them and come with me. And don't trust the United States of Earth too. I have my pilot licence.
+  But not here with me... Whatever, trust me, I know how to fly (when I'm in good mood). COME PLEASE!"
+]
+
 avatar = URI.open('https://res.cloudinary.com/dx5ha1ecm/image/upload/v1653568759/ajwiov5xeub3z1susfsh.jpg')
 
 main_user = User.create!(
@@ -142,7 +157,7 @@ main_user.photo.attach(io: avatar, filename: 'avatar.jpg', content_type: 'image/
 
   trip = Trip.create!(
     destination: Faker::Movies::StarWars.planet,
-    description: Faker::Lorem.paragraph(sentence_count: 10),
+    description: trip_description.sample,
     price_per_day: [10_000, 15_000, 20_000, 30_000, 40_000, 50_000, 100_000].sample,
     min_duration: (3...10).to_a.sample,
     spatioport_id: Spatioport.all.sample.id,
@@ -185,7 +200,7 @@ puts 'Creating five spaceships owners with each 5 trips'
 
     trip = Trip.create!(
       destination: Faker::Movies::StarWars.planet,
-      description: Faker::Lorem.paragraph(sentence_count: 10),
+      description: trip_description.sample,
       price_per_day: [10_000, 15_000, 20_000, 30_000, 40_000, 50_000, 100_000].sample,
       min_duration: (3...10).to_a.sample,
       spatioport_id: Spatioport.all.sample.id,

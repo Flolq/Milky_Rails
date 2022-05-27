@@ -284,29 +284,22 @@
 }
 
 .card-trip-description {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: white;
   border-radius: 10px;
   height: 350px;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
   margin-top: 15px;
   margin-bottom: 15px;
-  outline: 10px solid $blue;
-  outline-offset: -5px;
 }
 
 .card-trip-description-title {
   display: flex;
-  justify-content: center;
   align-items: center;
+  padding: 45px 30px;
   width: 100%;
   height: 60px;
   color: $blue;
-  outline: 10px solid $blue;
-  outline-offset: -5px;
-  border-radius: 15px;
+  border-bottom: 1px solid $blue;
   h3 {
     font-weight: bolder;
   }
@@ -316,26 +309,51 @@
   padding: 15px 30px;
   text-align: justify;
   p {
-    font-weight: lighter;
-    font-size: 15px;
+    font-size: 18px;
+  }
+}
+
+.card-trip-description-pictures {
+  display: flex;
+  justify-content: space-around;
+  img {
+    box-shadow: 0px 0px 6px $blue;
   }
 }
 
 .card-booking-detail {
+  margin-top: 15px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
   padding: 10px;
+  position: sticky;
+  top:0;
+}
+
+.card-booking-detail-map {
+  width: 100%;
+  height: 300px;
+  border: 1px solid $blue;
+}
+
+.card-booking-title {
+  background: $background-gradient;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  h2 {
+    background: $webkit-gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 .card-booking-detail-content {
-  h2 {
-    text-align: center;
-  }
-  background-color: $blue;
   border-radius: 10px;
   margin: 5px 10px;
-  padding: 20px;
   &:last-child {
     margin-top: 20px;
   }
@@ -344,8 +362,28 @@
   justify-content: space-between;
 }
 
+.card-booking-detail-content-detail {
+  border: 1px solid $blue;
+  border-radius: 10px;
+}
+
+.card-booking-destination {
+  padding: 15px;
+  &:first-child {
+    border-bottom: 1px solid $blue;
+  }
+}
+
+.card-booking-dates {
+  padding: 15px;
+  border-top: 1px solid $blue;
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .card-booking-detail-content-total {
-  margin-top: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .card-congrats {
