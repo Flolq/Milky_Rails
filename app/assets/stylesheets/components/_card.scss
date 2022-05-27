@@ -1,35 +1,102 @@
+// .trip-card {
+//   background-color: white;
+//   border-radius: 10px;
+//   height: 375px;
+//   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+//   margin: 10px 5px 10px 5px;
+//   h3 {
+//     font-size: 22px;
+//     margin-bottom: 30px;
+//   }
+//   p {
+//     font-size: 11px;
+//     font-weight: lighter;
+//   }
+// }
 .trip-card {
-  background-color: white;
-  border-radius: 10px;
-  height: 375px;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
-  margin: 10px 5px 10px 5px;
-  h3 {
-    font-size: 22px;
-    margin-bottom: 30px;
+  position: relative;
+	display: flex;
+	align-items: flex-end;
+	transition: 0.4s ease-out;
+	box-shadow: 0px 7px 10px rgba(black, 0.5);
+  margin: 15px;
+  border-radius: 15px;
+  height: 325px;
+  .visibility {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(black, 0.6);
   }
-  p {
-    font-size: 11px;
-    font-weight: lighter;
+  &:hover {
+		transform: translateY(10px);
+    .visibility {
+      visibility: hidden;
+    }
+    .trip-card-content {
+      opacity: 1;
+      // text-shadow: 2px 2px 2px black;
+      transform: translateY(0px);
+      padding-bottom: 30px;
+    }
   }
-}
-
-.trip-card-img {
-  background-size: cover;
-  background-position: center;
-  height: 170px;
-  border-radius: 10px 10px 0 0;
-}
-
-.trip-card-content {
-  padding: 16px;
-  line-height: 10px;
+	.trip-card-img {
+    background-size: cover;
+    background-position: center;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: 15px;
+  }
+  .trip-card-content {
+		position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+		z-index: 3;
+		color: white;
+		opacity: 0;
+		transform: translateY(30px);
+		transition: 0.5s;
+    border-radius: 15px;
+    margin: 10px;
+    text-shadow: 1px 1px 3px rgba(black, 0.6);
+		h1 {
+			margin: 0px;
+    }
+		p {
+			letter-spacing: 1px;
+			font-size: 12px;
+			margin-top: 8px;
+      align-items: left;
+    }
+		button {
+			padding: 0.6rem;
+			outline: none;
+			border: none;
+			border-radius: 3px;
+			background: white;
+			color: black;
+			font-weight: bold;
+			cursor: pointer;
+			transition: 0.4s ease;
+			&:hover {
+				background: dodgerblue;
+				color: white;
+      }
+    }
+  }
 }
 
 .trip-card-price {
-  margin-top: 40px;
+  margin-top: 30px;
   text-align: right;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bold;
 }
 
