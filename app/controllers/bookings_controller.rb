@@ -14,7 +14,6 @@ class BookingsController < ApplicationController
     @booking.number_of_people = details["number_of_travellers"]
     @booking.trip = @trip
     @booking.user = @user
-    @booking.confirmed = true
     @booking.save
     redirect_to booked_path(@trip)
   end
