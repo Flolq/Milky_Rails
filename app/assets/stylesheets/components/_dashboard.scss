@@ -1,0 +1,36 @@
+.centre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirmed {
+  color: rgb(7, 203, 46);
+}
+
+.unconfirmed {
+  color: rgb(216, 23, 9);
+}
+
+.add-trip {
+font-size: 60px;
+height: 60px;
+width: 60px;
+}
+
+.bordered {
+  border: dashed;
+  opacity: 0.5;
+}
+
+.bordered:hover {
+  opacity : 0.75;
+}
+
+.margin {
+  margin-top: 20px;
+}
+
+.title-dashboard {
+  margin-top: 20px;
+}

@@ -1,16 +1,18 @@
 <div class="container">
-  <div class="avatar-marging">
-  <% if @user.photo.attached? %>
-    <%= cl_image_tag @user.photo.key, height: 300, width: 300, crop: :fill, class: "rounded-circle" %>
-  <% end %>
-  </div>
-  <div>
-    <div class="title">
-      <h1>Hi, <%= @user.first_name %> <%= @user.last_name %> ! 🚀</h1>
+  <div class ="row margin">
+    <div class="col-6">
+      <div class="avatar-marging">
+        <% if @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, height: 300, width: 500, crop: :fill %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-6 centre">
+        <h1>Hi, <%= @user.first_name %> <%= @user.last_name %> ! 🚀</h1>
     </div>
   </div>
 
-  <div class="title">
+  <div class="title-dashboard">
     <h2>Your bookings</h2>
   </div>
 
@@ -23,9 +25,9 @@
               <div  class="trip-card-recap-infos">
                 <h3>Trip to: <%= booking.trip.destination %></h3>
                 <% if booking.confirmed == true %>
-                <p><strong>Confirmed</strong></p>
+                <p class="confirmed"><strong>CONFIRMED</strong></p>
                 <% else %>
-                <h3>To be confirmed</h3>
+                <p class="unconfirmed"><strong>TO BE CONFIRMED</strong></p>
                 <% end %>
                 <div>Departure: <%= booking.start_date %></div>
                 <div>Return: <%= booking.end_date %></div>
@@ -39,35 +41,39 @@
     <% end %>
   </div>
 
-
-  <h2>Your proposed trips</h2>
+  <div class="title-dashboard">
+    <h2>Your proposed trips</h2>
+  </div>
     <div class="row">
       <% @user.my_trips.each do |trip| %>
-      <div class="col-4">
-        <div class="trip-card-recap margin">
-          <div class="trip-card-recap-content">
-            <div class="trip-card-recap-text">
-              <div  class="trip-card-recap-infos">
-                <h3>Trip to: <%= trip.destination %></h3>
-                <div>Minimum duration : <%= trip.min_duration %></div>
-                <div>Maximum capacity of the spaceship : <%= trip.shuttle.max_capacity %></div>
-                <div> <%= number_with_delimiter(trip.price_per_day, :delimiter => ' ') %> Galactic credits / day</div>
+        <div class="col-4">
+          <div class="trip-card-recap margin">
+            <div class="trip-card-recap-content">
+              <div class="trip-card-recap-text">
+                <div  class="trip-card-recap-infos">
+                  <h3>Trip to: <%= trip.destination %></h3>
+                  <div>Minimum duration : <%= trip.min_duration %></div>
+                  <div>Maximum capacity of the spaceship : <%= trip.shuttle.max_capacity %></div>
+                  <div> <%= number_with_delimiter(trip.price_per_day, :delimiter => ' ') %> Galactic credits / day</div>
+                </div>
               </div>
+              <% if trip.photo.attached? %>
+                <div class="trip-card-recap-img" style="background-image: url(<%= cl_image_path trip.photo.key %>);"></div>
+              <% else %>
+                <div class="trip-card-recap-img" style="background-image: url(<%= image_path "space.jpg" %>);"></div>
+              <% end %>
             </div>
-            <% if trip.photo.attached? %>
-            <div class="trip-card-recap-img" style="background-image: url(<%= cl_image_path trip.photo.key %>);"></div>
-            <% else %>
-            <div class="trip-card-recap-img" style="background-image: url(<%= image_path "space.jpg" %>);"></div>
-            <% end %>
-          </div>
-          <div class="button-card-recap">
-            <div class="small-btn-full"><span><%= link_to "See details", trip_path(trip) %></span></div>
+            <div class="button-card-recap">
+              <div class="small-btn-full"><span><%= link_to "See details", trip_path(trip) %></span></div>
+            </div>
           </div>
         </div>
+      <% end %>
+      <div class="col-4">
+       <%= link_to new_user_trip_path(@user) do %>
+      <div class="trip-card-recap margin centre bordered">
+        <div class="add-trip centre">+</div>
       </div>
-        <% end %>
+      <% end %>
     </div>
-    <div class="small-btn-full col-2 margin"><span><%= link_to "Create a new trip", new_user_trip_path(@user) %></span></div>
-    <div class="small-btn-full col-2 margin"><span><%= link_to "Back to trips", trips_path %></span></div>
-  </div>
 </div>
