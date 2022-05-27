@@ -396,7 +396,7 @@
   align-items: center;
   flex-direction: column;
   border-radius: 10px;
-  height: 350px;
+  height: 400px;
   box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.75);
   margin: 40px 30px 15px 30px;
     h1 {
@@ -422,7 +422,7 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 0px;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: lighter;
   }
 }
@@ -438,4 +438,35 @@
 
 .margin-button {
   margin: 20px;
+}
+
+.card-sorry {
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("hans_solo.jpg");
+  background-position: -66px -84px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  height: 350px;
+  width: 90%;
+  box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.75);
+  margin: 30px 30px 40px 30px;
+    h3 {
+      color: white;
+    // background: $webkit-gradient;
+    // -webkit-background-clip: text;
+    // background-clip: text;
+    // -webkit-text-fill-color: transparent;
+    margin-bottom: 0px;
+    font-size: 22px;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(black, 0.6);
+  }
+}
+
+.card-sorry-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
