@@ -19,7 +19,7 @@
   <div class="row">
     <% @user.bookings.each do |booking| %>
       <div class="col-4">
-        <div class="trip-card-recap margin">
+        <div class="trip-card-recap margin delete-container">
           <div class="trip-card-recap-content">
             <div class="trip-card-recap-text">
               <div  class="trip-card-recap-infos">
@@ -36,6 +36,9 @@
             </div>
             <div class="trip-card-recap-img" style="background-image: url(<%= cl_image_path booking.trip.photo.key %>);"></div>
           </div>
+          <%= link_to booking_path(booking), method: :delete do %>
+          <div class="delete">+</div>
+          <% end %>
         </div>
       </div>
     <% end %>
