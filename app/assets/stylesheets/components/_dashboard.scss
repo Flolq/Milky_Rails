@@ -45,5 +45,25 @@ width: 60px;
 
 .confirmation-btn:hover {
   color: rgb(216, 150, 9);
+
+.delete-container {
+  position: relative;
+}
+
+.delete {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  color: grey;
+  // outline: 2px solid gray;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bolder;
+  padding: 0px 7px 0px 7px;
+  transform: rotate(45deg);
+  opacity: 0.4;
+}
+
+.delete:hover {
   opacity: 1;
 }

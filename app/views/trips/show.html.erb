@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row mt-5">
     <div class="col-12">
-      <div class="trip-detail-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @trip.photo.key %>);">
+      <% if @trip.photo.attached? %>
+        <div class="trip-detail-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @trip.photo.key %>);">
+      <% else %>
+        <div class="trip-detail-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "space.jpg" %>);">
+      <% end %>
         <h2><%= @trip.destination %></h2>
       </div>
     </div>
