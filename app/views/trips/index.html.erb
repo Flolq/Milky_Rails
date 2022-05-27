@@ -36,7 +36,16 @@
 
   <div class="row">
       <% if @trips == [] %>
-        <p class="vh">Sorry no available trips with your criterias ... Han Solo is busy</p>
+        <div class="card-sorry-align">
+          <div class="card-sorry">
+            <div>
+                <h3>Sorry no available trips with your criterias ... Han Solo is busy !</h3>
+            </div>
+              <div class="card-congrats-buttons">
+              <div class="small-btn-transparent margin-button"><span><%= link_to "Back to homepage", trips_path %></span></div>
+            </div>
+          </div>
+        </div>
       <% else %>
         <% @trips.each do |trip| %>
           <div class="col-3">
