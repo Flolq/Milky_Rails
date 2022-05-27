@@ -4,6 +4,11 @@ class TripsController < ApplicationController
 
   def index
     @user = current_user
+    all_trips = Trip.all
+    all_destinations_unsorted = all_trips.map do |trip|
+      trip.destination
+    end
+    @all_destinations = all_destinations_unsorted.sort.uniq
     if params[:end_date].blank? && params[:start_date].blank? && params[:destination].blank?
       @trips = Trip.all
     else
