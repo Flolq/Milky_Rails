@@ -1,13 +1,9 @@
 <div class="container">
-  <div class ="row margin">
-    <div class="col-6">
-      <div class="avatar-marging">
+  <div class ="dashboard-title">
         <% if @user.photo.attached? %>
         <%= cl_image_tag @user.photo.key, height: 300, width: 500, crop: :fill %>
         <% end %>
-      </div>
-    </div>
-    <div class="col-6 centre">
+    <div>
         <h1>Hi, <%= @user.first_name %> <%= @user.last_name %> ! 🚀</h1>
     </div>
   </div>
@@ -76,4 +72,5 @@
       </div>
       <% end %>
     </div>
+  </div>
 </div>
