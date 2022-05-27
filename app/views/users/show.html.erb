@@ -49,6 +49,40 @@
     <% end %>
   </div>
 
+
+  <div class="title-dashboard">
+    <h2>Your bookings as a pilot</h2>
+  </div>
+
+  <div class="row">
+    <% @requests.each do |request| %>
+      <div class="col-4">
+        <div class="trip-card-recap margin">
+          <div class="trip-card-recap-content">
+            <div class="trip-card-recap-text">
+              <div  class="trip-card-recap-infos">
+                <h3>Trip to: <%= request.trip.destination %></h3>
+                <% if request.confirmed %>
+                <p class="confirmed"><strong>CONFIRMED</strong></p>
+                <% else %>
+                <p><strong><%= link_to 'ACCEPT REQUEST', booking_path(request), method: :patch, class: "confirmation-btn"%></strong></p>
+                <% end %>
+                <div>Departure: <%= request.start_date %></div>
+                <div>Return: <%= request.end_date %></div>
+                <div> Total price = <%= number_with_delimiter(request.trip.price_per_day*(request.end_date-request.start_date).to_i, :delimiter => ' ') %> Galactic credits</p></div>
+              </div>
+            </div>
+            <% if request.trip.photo.attached? %>
+                <div class="trip-card-recap-img" style="background-image: url(<%= cl_image_path request.trip.photo.key %>);"></div>
+              <% else %>
+                <div class="trip-card-recap-img" style="background-image: url(<%= image_path "space.jpg" %>);"></div>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
   <div class="title-dashboard text-center mt-3">
     <h2>Your proposed trips</h2>
     <hr>

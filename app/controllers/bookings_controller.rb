@@ -18,17 +18,23 @@ class BookingsController < ApplicationController
     redirect_to booked_path(@trip)
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.confirmed = true
+    @booking.save
+    redirect_to user_path(current_user)
+  end
+
+
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to user_path(current_user)
   end
 
-
   private
 
   def booking_params
-    # params.require(:booking).permit(:start_date, :end_date, :number_of_peole)
-    params.require(:booking).permit(:start_date, :end_date, :number_of_peole)
+    params.require(:booking).permit(:start_date, :end_date, :number_of_peole, :confirmed)
   end
 end

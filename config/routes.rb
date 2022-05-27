@@ -11,6 +11,5 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [:show, :edit, :update, :destroy]
 
-
   get "trips/:id/booked", to: "trips#booked", as: :booked
 end
