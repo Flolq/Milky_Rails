@@ -170,10 +170,11 @@ end
 
 3.times do
   trip = Trip.all.sample
+  date = Faker::Date.in_date_period(year: 2152)
 
   Booking.create!(
-    start_date: Faker::Date.in_date_period(year: 2152),
-    end_date: Faker::Date.in_date_period(year: 2152) + 10,
+    start_date: date,
+    end_date: date + 10,
     confirmed: [true, false].sample,
     user_id: main_user.id,
     trip_id: trip.id,
@@ -227,10 +228,11 @@ puts "Creating 'classic' users and their bookings"
   user.photo.attach(io: profile_pic, filename: 'avatar.jpg', content_type: 'image/jpg')
 
   trip = Trip.all.sample
+  date = Faker::Date.in_date_period(year: 2152)
 
   Booking.create!(
-    start_date: Faker::Date.in_date_period(year: 2152),
-    end_date: Faker::Date.in_date_period(year: 2152) + 10,
+    start_date: date,
+    end_date: date + 10,
     confirmed: [true, false].sample,
     user_id: user.id,
     trip_id: trip.id,
