@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
 
-  resources :bookings, only: [:show, :edit, :update]
+  resources :bookings, only: [:show, :edit, :update, :destroy]
 
 
   get "trips/:id/booked", to: "trips#booked", as: :booked
