@@ -13,7 +13,7 @@
   </div>
 
   <div class="title-dashboard">
-    <h2>Your bookings</h2>
+    <h2>Your bookings as a traveller</h2>
   </div>
 
   <div class="row">
@@ -34,7 +34,11 @@
                 <div> Total price = <%= number_with_delimiter(booking.trip.price_per_day*(booking.end_date-booking.start_date).to_i, :delimiter => ' ') %> Galactic credits</p></div>
               </div>
             </div>
-            <div class="trip-card-recap-img" style="background-image: url(<%= cl_image_path booking.trip.photo.key %>);"></div>
+            <% if booking.trip.photo.attached? %>
+                <div class="trip-card-recap-img" style="background-image: url(<%= cl_image_path booking.trip.photo.key %>);"></div>
+              <% else %>
+                <div class="trip-card-recap-img" style="background-image: url(<%= image_path "space.jpg" %>);"></div>
+              <% end %>
           </div>
         </div>
       </div>
