@@ -5,22 +5,22 @@
   <form action="/trips" method="get" class="search-form">
     <div>
       <label for="start_date" class="search-form-label">From: </label>
-      <input type="date" id="start_date" name="start_date" class="search-form-input">
+      <input type="date" id="start_date" name="start_date" class="search-form-input" required>
     </div>
     <div>
       <label for="end_date" class="search-form-label">From: </label>
-      <input type="date" id="end_date" name="end_date" class="search-form-input">
+      <input type="date" id="end_date" name="end_date" class="search-form-input" required>
     </div>
     <div>
       <label for="number_of_travellers" class="search-form-label">Number of Travellers</label>
-      <input type="number" id="number_of_travellers" name="number_of_travellers" placeholder="2" min = "0" style="width: 50px" class="search-form-input">
+      <input type="number" id="number_of_travellers" name="number_of_travellers" placeholder="2" min = "0" style="width: 50px" class="search-form-input" required>
     </div>
     <div>
       <label for="destination" class="search-form-label">Destination: </label>
-      <select id = "destination" name = "destination" >
+      <select id = "destination" name = "destination" required >
       <option value="" disabled selected hidden>Choose</option>
       <% @all_destinations.each do |destination| %>
-        <option value = <%= destination %>><%= destination %></option>
+        <option value = "<%= destination %>"><%= destination %></option>
         <% end %>
       </select>
     </div>
