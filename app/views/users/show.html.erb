@@ -12,8 +12,9 @@
     </div>
   </div>
 
-  <div class="title-dashboard">
+  <div class="title-dashboard text-center">
     <h2>Your bookings as a traveller</h2>
+    <hr>
   </div>
 
   <div class="row">
@@ -48,6 +49,7 @@
     <% end %>
   </div>
 
+
   <div class="title-dashboard">
     <h2>Your bookings as a pilot</h2>
   </div>
@@ -81,9 +83,9 @@
     <% end %>
   </div>
 
-
-  <div class="title-dashboard">
+  <div class="title-dashboard text-center mt-3">
     <h2>Your proposed trips</h2>
+    <hr>
   </div>
     <div class="row">
       <% @user.my_trips.each do |trip| %>
