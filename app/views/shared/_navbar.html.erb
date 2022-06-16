@@ -23,8 +23,11 @@
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <% if current_user %>
               <li class="dropdown-item"> <%=  link_to "Dashboard", user_path(current_user)%></li>
+              <li class="dropdown-item"><%= link_to "Log out" %></li>
+            <% else %>
+              <li class="dropdown-item"> <%=  link_to "Log in", new_user_session_path %></li>
+              <li class="dropdown-item"> <%=  link_to "Sign up", new_user_registration_path %></li>
             <% end %>
-            <li class="dropdown-item"><%= link_to "Log out" %></li>
           </ul>
           </div>
         </div>
